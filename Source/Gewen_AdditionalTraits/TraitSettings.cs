@@ -10,21 +10,21 @@ using Harmony;
 
 namespace Gewen_AdditionalTraits
 {
-	public class FileInfo : IExposable
+	public class GAT_FileInfo : IExposable
 	{
-		public class DefInfo : IExposable
+		public class GAT_DefInfo : IExposable
 		{
 			public bool enabled = true;
 				
 			public string description = "";
 
-			public DefInfo()
+			public GAT_DefInfo()
 			{
 				this.enabled = true;
 				this.description = "";
 			}
 
-			public DefInfo(bool enabled = true, string description="")
+			public GAT_DefInfo(bool enabled = true, string description="")
 			{
 				this.enabled = enabled;
 				this.description = description;
@@ -38,14 +38,14 @@ namespace Gewen_AdditionalTraits
 		}
 
 		public bool enabled = true;
-		public Dictionary<string, DefInfo> defInfo = new Dictionary<string, DefInfo>();
+		public Dictionary<string, GAT_DefInfo> defInfo = new Dictionary<string, GAT_DefInfo>();
 
-		public FileInfo()
+		public GAT_FileInfo()
 		{
 			this.enabled = true;
 		}
 
-		public FileInfo(bool enabled = true)
+		public GAT_FileInfo(bool enabled = true)
 		{
 			this.enabled = enabled;
 		}
@@ -53,13 +53,13 @@ namespace Gewen_AdditionalTraits
 		public void ExposeData()
 		{
 			Scribe_Values.Look(ref enabled, "fileEnabled", true);
-			Scribe_Collections.Look<string, DefInfo>(ref defInfo, "defInfo", LookMode.Value, LookMode.Deep);
+			Scribe_Collections.Look<string, GAT_DefInfo>(ref defInfo, "defInfo", LookMode.Value, LookMode.Deep);
 
 			if (Scribe.mode != LoadSaveMode.Saving)
 			{
 				if (defInfo == null)
 				{
-					defInfo = new Dictionary<string, DefInfo>();
+					defInfo = new Dictionary<string, GAT_DefInfo>();
 				}
 			}
 		}
@@ -67,18 +67,11 @@ namespace Gewen_AdditionalTraits
 
 	public class TraitSettings : ModSettings
 	{
-
-		private Dictionary<string, FileInfo> fileDict = new Dictionary<string, FileInfo>();
-
-		//public static List<string> disabledTraitList = new List<string>();
-		private List<DefPackage> packages = new List<DefPackage>();
-		//private Dictionary<string, bool> fileEnabledDict = new Dictionary<string, bool>();
-		//private List<Dictionary<string, bool>> defEnabledDict = new List<Dictionary<string, bool>>();
-		private static Vector2 scrollVector2;
-
 		private int defCount = 0;
+		private static Vector2 scrollVector2;
+		private List<DefPackage> packages = new List<DefPackage>();
+		public static Dictionary<string, GAT_FileInfo> fileInfoDict = new Dictionary<string, GAT_FileInfo>();
 
-		//Fetch mod defs, initialize dictionaries, and count entries
 		public void init()
 		{
 			packages = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.GetDefPackagesInFolder("TraitDefs\\").ToList();
@@ -87,16 +80,16 @@ namespace Gewen_AdditionalTraits
 			{
 				var pack = packages[i];
 
-				if (fileDict.ContainsKey(pack.fileName) == false)
+				if (fileInfoDict.ContainsKey(pack.fileName) == false)
 				{
-					fileDict.Add(pack.fileName, new FileInfo(true));
+					fileInfoDict.Add(pack.fileName, new GAT_FileInfo(true));
 				}
 
 				foreach (TraitDef item in pack)
 				{
-					if (fileDict[pack.fileName].defInfo.ContainsKey(item.defName) == false)
+					if (fileInfoDict[pack.fileName].defInfo.ContainsKey(item.defName) == false)
 					{
-						fileDict[pack.fileName].defInfo.Add(item.defName, new FileInfo.DefInfo(fileDict[pack.fileName].enabled));
+						fileInfoDict[pack.fileName].defInfo.Add(item.defName, new GAT_FileInfo.GAT_DefInfo(fileInfoDict[pack.fileName].enabled));
 					}
 
 					string desc = "";
@@ -104,22 +97,21 @@ namespace Gewen_AdditionalTraits
 					{
 						desc += degree.label + ": " + degree.description + "\n\n";
 					}
-					fileDict[pack.fileName].defInfo[item.defName].description = desc;
+					fileInfoDict[pack.fileName].defInfo[item.defName].description = desc;
 				}
-				defCount += fileDict[pack.fileName].defInfo.Count;
+				defCount += fileInfoDict[pack.fileName].defInfo.Count;
 			}
 		}
 
 		public override void ExposeData()
 		{
-			//Scribe_Collections.Look<string>(ref disabledTraitList, "disabledTraitList", LookMode.Value);
-			Scribe_Collections.Look<string, FileInfo>(ref fileDict, "fileDict", LookMode.Value, LookMode.Deep);
+			Scribe_Collections.Look<string, GAT_FileInfo>(ref fileInfoDict, "fileDict", LookMode.Value, LookMode.Deep);
 
 			if (Scribe.mode != LoadSaveMode.Saving)
 			{
-				if (fileDict == null)
+				if (fileInfoDict == null)
 				{
-					fileDict = new Dictionary<string, FileInfo>();
+					fileInfoDict = new Dictionary<string, GAT_FileInfo>();
 				}
 			}
 		}
@@ -142,43 +134,40 @@ namespace Gewen_AdditionalTraits
 			options.Label("All changes require a restart to take effect");
 			Text.Font = GameFont.Small;
 			GUI.color = defaultColor;
-
 			options.Gap();
+
 			float gapHeight = 12;
-			Rect scroller = new Rect(r.x, r.y, r.width * 0.9f, (defCount + fileDict.Count) * (Text.LineHeight + (options.verticalSpacing / 2)) + (fileDict.Count * gapHeight) + 36);
-			options.BeginScrollView(r.TopPart(.9f), ref scrollVector2, ref scroller);
-			options.Gap(36); //Not sure why the scroller thinks it needs to start 36 before when it actually does...
+			Rect scroller = r.GetInnerRect();
+			scroller.width -= 20f; //20 is width of scroll bar
+			scroller.height = (defCount + fileInfoDict.Count) * (Text.LineHeight + (options.verticalSpacing)) + (fileInfoDict.Count * gapHeight);
+			Widgets.BeginScrollView(r.GetInnerRect().TopPart(.9f), ref scrollVector2, scroller);
+			options.Begin(scroller);
 
 			for (int i = 0; i < packages.Count; i++)
 			{
 				var pack = packages[i];
 
-				//bool fileStatus = fileEnabledDict[pack.fileName];
-				bool fileStatus = fileDict[pack.fileName].enabled;
-				options.CheckboxLabeled(pack.fileName, ref fileStatus, "enable/disable all defs in file");
+				bool fileStatus = fileInfoDict[pack.fileName].enabled;
 
+				options.CheckboxLabeled(pack.fileName, ref fileStatus, "enable/disable all defs in file");
 				foreach (TraitDef def in pack.defs)
 				{
 					bool defStatus = fileStatus;
-					string desc = "";
 
-					if (fileStatus == fileDict[pack.fileName].enabled)
+					if (fileStatus == fileInfoDict[pack.fileName].enabled)
 					{
-						defStatus = fileDict[pack.fileName].defInfo[def.defName].enabled;
+						defStatus = fileInfoDict[pack.fileName].defInfo[def.defName].enabled;
 					}
-					foreach (var item in def.degreeDatas)
-					{
-						desc += item.label + ": " + item.description + "\n\n";
-					}
-					options.CheckboxLabeled("\t" + def.defName, ref defStatus, desc);
-					fileDict[pack.fileName].defInfo[def.defName].enabled = defStatus;
+
+					options.CheckboxLabeled("\t" + def.defName, ref defStatus, fileInfoDict[pack.fileName].defInfo[def.defName].description);
+					fileInfoDict[pack.fileName].defInfo[def.defName].enabled = defStatus;
 				}
-				fileDict[pack.fileName].enabled = fileStatus;
+				fileInfoDict[pack.fileName].enabled = fileStatus;
 
 				options.GapLine(gapHeight);
 			}
-
-			options.EndScrollView(ref scroller);
+			options.End();
+			Widgets.EndScrollView();
 			options.End();
 			this.Write();
 		}

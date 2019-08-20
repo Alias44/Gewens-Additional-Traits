@@ -16,18 +16,24 @@ namespace Gewen_AdditionalTraits
 	{
 		static AdditionalTraits()
 		{
-			/*foreach (string trait in TraitSettings.disabledTraitList)
+			foreach (KeyValuePair<string, GAT_FileInfo> file in TraitSettings.fileInfoDict)
 			{
-				if(RemoveTrait(trait) == false)
+				foreach (KeyValuePair<string, GAT_FileInfo.GAT_DefInfo> item in file.Value.defInfo)
 				{
-					TraitSettings.disabledTraitList.Remove(trait);
+					if (item.Value.enabled == false)
+					{
+						if (RemoveTrait(item.Key) == false)
+						{
+							//TraitSettings.fileInfoDict[file.Key].defInfo.Remove(item.Key);
+						}
+					}
 				}
-			}*/
-		}
 
-		public static void AddTrait(TraitDef trait)
-		{
-			DefDatabase<TraitDef>.Add(trait);
+				if (TraitSettings.fileInfoDict[file.Key] == null)
+				{
+					TraitSettings.fileInfoDict.Remove(file.Key);
+				}
+			}
 		}
 
 		public static bool RemoveTrait(string traitDefName)
@@ -38,21 +44,12 @@ namespace Gewen_AdditionalTraits
 				return false;
 			}
 
-			Traverse.Create(typeof(DefDatabase<TraitDef>)).Method("Remove", td);
-			return true;
-		}
-
-		/*public static void RemoveTrait(string trait)
-		{
-			Traverse.Create(typeof(DefDatabase<TraitDef>)).Method("Remove", new System.Type[1]
+			Traverse.Create(typeof(DefDatabase<TraitDef>)).Method("Remove", new Type[]
 			{
-			  typeof (TraitDef)
-			}, (object[])null).GetValue((object)TraitDef.Named(trait));
-		}*/
+				typeof (TraitDef)
+			}).GetValue(TraitDef.Named(traitDefName));
 
-		public static void RemoveTrait(TraitDef trait)
-		{
-			RemoveTrait(trait.defName);
+			return true;
 		}
 	}
 }
