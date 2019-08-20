@@ -6,7 +6,7 @@
   <ThoughtDef>
     <defName>Perverted</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
-    <workerClass>Gewens_AdditionalTraits.ThoughtWorker_Perv</workerClass>
+    <workerClass>Gewen_AdditionalTraits.ThoughtWorker_Perv</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
