@@ -10,12 +10,70 @@ using Harmony;
 
 namespace Gewen_AdditionalTraits
 {
+	public class FileInfo : IExposable
+	{
+		public class DefInfo : IExposable
+		{
+			public bool enabled = true;
+				
+			public string description = "";
+
+			public DefInfo()
+			{
+				this.enabled = true;
+				this.description = "";
+			}
+
+			public DefInfo(bool enabled = true, string description="")
+			{
+				this.enabled = enabled;
+				this.description = description;
+			}
+
+			public void ExposeData()
+			{
+				Scribe_Values.Look(ref enabled, "defEnabled", true);
+				Scribe_Values.Look(ref description, "defDescription", "");
+			}
+		}
+
+		public bool enabled = true;
+		public Dictionary<string, DefInfo> defInfo = new Dictionary<string, DefInfo>();
+
+		public FileInfo()
+		{
+			this.enabled = true;
+		}
+
+		public FileInfo(bool enabled = true)
+		{
+			this.enabled = enabled;
+		}
+
+		public void ExposeData()
+		{
+			Scribe_Values.Look(ref enabled, "fileEnabled", true);
+			Scribe_Collections.Look<string, DefInfo>(ref defInfo, "defInfo", LookMode.Value, LookMode.Deep);
+
+			if (Scribe.mode != LoadSaveMode.Saving)
+			{
+				if (defInfo == null)
+				{
+					defInfo = new Dictionary<string, DefInfo>();
+				}
+			}
+		}
+	}
+
 	public class TraitSettings : ModSettings
 	{
+
+		private Dictionary<string, FileInfo> fileDict = new Dictionary<string, FileInfo>();
+
 		//public static List<string> disabledTraitList = new List<string>();
 		private List<DefPackage> packages = new List<DefPackage>();
-		private Dictionary<string, bool> fileEnabledDict = new Dictionary<string, bool>();
-		private List<Dictionary<string, bool>> defEnabledDict = new List<Dictionary<string, bool>>();
+		//private Dictionary<string, bool> fileEnabledDict = new Dictionary<string, bool>();
+		//private List<Dictionary<string, bool>> defEnabledDict = new List<Dictionary<string, bool>>();
 		private static Vector2 scrollVector2;
 
 		private int defCount = 0;
@@ -29,27 +87,41 @@ namespace Gewen_AdditionalTraits
 			{
 				var pack = packages[i];
 
-				if (fileEnabledDict.TryGetValue(pack.fileName) == false) //If the file hasn't been 
+				if (fileDict.ContainsKey(pack.fileName) == false)
 				{
-					fileEnabledDict.Add(pack.fileName, true);
-
-					defEnabledDict.Add(new Dictionary<string, bool>());
+					fileDict.Add(pack.fileName, new FileInfo(true));
 				}
 
 				foreach (TraitDef item in pack)
 				{
-					if (defEnabledDict[i].TryGetValue(item.defName) == false)
+					if (fileDict[pack.fileName].defInfo.ContainsKey(item.defName) == false)
 					{
-						defEnabledDict[i].Add(item.defName, fileEnabledDict[pack.fileName]);
+						fileDict[pack.fileName].defInfo.Add(item.defName, new FileInfo.DefInfo(fileDict[pack.fileName].enabled));
 					}
+
+					string desc = "";
+					foreach (var degree in item.degreeDatas)
+					{
+						desc += degree.label + ": " + degree.description + "\n\n";
+					}
+					fileDict[pack.fileName].defInfo[item.defName].description = desc;
 				}
-				defCount += defEnabledDict[i].Count;
+				defCount += fileDict[pack.fileName].defInfo.Count;
 			}
 		}
 
 		public override void ExposeData()
 		{
 			//Scribe_Collections.Look<string>(ref disabledTraitList, "disabledTraitList", LookMode.Value);
+			Scribe_Collections.Look<string, FileInfo>(ref fileDict, "fileDict", LookMode.Value, LookMode.Deep);
+
+			if (Scribe.mode != LoadSaveMode.Saving)
+			{
+				if (fileDict == null)
+				{
+					fileDict = new Dictionary<string, FileInfo>();
+				}
+			}
 		}
 
 		//GUI Window
@@ -73,7 +145,7 @@ namespace Gewen_AdditionalTraits
 
 			options.Gap();
 			float gapHeight = 12;
-			Rect scroller = new Rect(r.x, r.y, r.width * 0.9f, (defCount + fileEnabledDict.Count) * (Text.LineHeight + (options.verticalSpacing / 2)) + (fileEnabledDict.Count * gapHeight) + 36);
+			Rect scroller = new Rect(r.x, r.y, r.width * 0.9f, (defCount + fileDict.Count) * (Text.LineHeight + (options.verticalSpacing / 2)) + (fileDict.Count * gapHeight) + 36);
 			options.BeginScrollView(r.TopPart(.9f), ref scrollVector2, ref scroller);
 			options.Gap(36); //Not sure why the scroller thinks it needs to start 36 before when it actually does...
 
@@ -81,7 +153,8 @@ namespace Gewen_AdditionalTraits
 			{
 				var pack = packages[i];
 
-				bool fileStatus = fileEnabledDict[pack.fileName];
+				//bool fileStatus = fileEnabledDict[pack.fileName];
+				bool fileStatus = fileDict[pack.fileName].enabled;
 				options.CheckboxLabeled(pack.fileName, ref fileStatus, "enable/disable all defs in file");
 
 				foreach (TraitDef def in pack.defs)
@@ -89,18 +162,18 @@ namespace Gewen_AdditionalTraits
 					bool defStatus = fileStatus;
 					string desc = "";
 
-					if (fileStatus == fileEnabledDict[pack.fileName])
+					if (fileStatus == fileDict[pack.fileName].enabled)
 					{
-						defStatus = defEnabledDict[i].TryGetValue(def.defName);
+						defStatus = fileDict[pack.fileName].defInfo[def.defName].enabled;
 					}
 					foreach (var item in def.degreeDatas)
 					{
 						desc += item.label + ": " + item.description + "\n\n";
 					}
 					options.CheckboxLabeled("\t" + def.defName, ref defStatus, desc);
-					defEnabledDict[i][def.defName] = defStatus;
+					fileDict[pack.fileName].defInfo[def.defName].enabled = defStatus;
 				}
-				fileEnabledDict[pack.fileName] = fileStatus;
+				fileDict[pack.fileName].enabled = fileStatus;
 
 				options.GapLine(gapHeight);
 			}
