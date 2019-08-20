@@ -97,16 +97,17 @@ v1.0 (by Gewen) Traits:
 
 ## Licensing
 (From Gewens forum post, although I'm sure Swenzi and myself would like credit as well)
+
 Feel free to tear this one apart to learn how traits are coded in XML or use it in a mod pack or whatever. Just give me some credit if you post the whole thing elsewhere, or a little tagline if I've inspired you somehow!
 	
 ## Thanks
-[Gewen (Dennis)](url=https://steamcommunity.com/id/chinupinstantsexy) - Original author
-[Swenzi](url=https://steamcommunity.com/id/RulerFaust)- A17-B18 Maintainer
-The Rimworld Discord- for being wonderful people
+* [Gewen (Dennis)](url=https://steamcommunity.com/id/chinupinstantsexy)- Original author
+* [Swenzi](url=https://steamcommunity.com/id/RulerFaust)- A17-B18 Maintainer
+* The Rimworld Discord- for being wonderful people
 
 ## Links
-[Ludeon for more information](https://ludeon.com/forums/index.php?topic=29661.msg300431#msg300431]
-[Swenzi's B18 version of this mod](https://steamcommunity.com/sharedfiles/filedetails/?id=954490820)
-[Swenzi's B18 version without Heros + God](http://steamcommunity.com/sharedfiles/filedetails/?id=946944965)
-[The A17 version of this mod](https://github.com/yliankuo/Additional-Traits-w--Heroes---Gods)
-[Gewen's A16 original mod](http://steamcommunity.com/sharedfiles/filedetails/?id=851164051)
+* [Ludeon for more information](https://ludeon.com/forums/index.php?topic=29661.msg300431#msg300431])
+* [Swenzi's B18 version of this mod](https://steamcommunity.com/sharedfiles/filedetails/?id=954490820)
+* [Swenzi's B18 version without Heros + God](http://steamcommunity.com/sharedfiles/filedetails/?id=946944965)
+* [The A17 version of this mod](https://github.com/yliankuo/Additional-Traits-w--Heroes---Gods)
+* [Gewen's A16 original mod](http://steamcommunity.com/sharedfiles/filedetails/?id=851164051)
