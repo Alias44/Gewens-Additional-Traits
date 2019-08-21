@@ -55,7 +55,7 @@
     <Compile Include="CorpsePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThoughtWorker_Perv.cs" />
-    <Compile Include="TraitSettings.cs" />
+    <Compile Include="GAT_TraitSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

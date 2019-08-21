@@ -99,6 +99,8 @@ v1.0 (by Gewen) Traits:
 (From Gewens forum post, although I'm sure Swenzi and myself would like credit as well)
 
 Feel free to tear this one apart to learn how traits are coded in XML or use it in a mod pack or whatever. Just give me some credit if you post the whole thing elsewhere, or a little tagline if I've inspired you somehow!
+
+Any further modifications
 	
 ## Thanks
 * [Gewen (Dennis)](url=https://steamcommunity.com/id/chinupinstantsexy)- Original author

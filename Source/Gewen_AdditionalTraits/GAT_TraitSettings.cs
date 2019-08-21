@@ -15,18 +15,21 @@ namespace Gewen_AdditionalTraits
 		public class GAT_DefInfo : IExposable
 		{
 			public bool enabled = true;
-				
+			public bool exists = false;
+			public string fileChanged = "";
 			public string description = "";
 
 			public GAT_DefInfo()
 			{
 				this.enabled = true;
+
 				this.description = "";
 			}
 
-			public GAT_DefInfo(bool enabled = true, string description="")
+			public GAT_DefInfo(bool enabled = true, bool exists=true, string description="")
 			{
 				this.enabled = enabled;
+				this.exists = exists;
 				this.description = description;
 			}
 
@@ -38,16 +41,19 @@ namespace Gewen_AdditionalTraits
 		}
 
 		public bool enabled = true;
+		public bool exists = true;
 		public Dictionary<string, GAT_DefInfo> defInfo = new Dictionary<string, GAT_DefInfo>();
 
 		public GAT_FileInfo()
 		{
 			this.enabled = true;
+			this.exists = false;
 		}
 
-		public GAT_FileInfo(bool enabled = true)
+		public GAT_FileInfo(bool enabled = true, bool exists = true)
 		{
 			this.enabled = enabled;
+			this.exists = exists;
 		}
 
 		public void ExposeData()
@@ -65,15 +71,17 @@ namespace Gewen_AdditionalTraits
 		}
 	}
 
-	public class TraitSettings : ModSettings
+	public class GAT_TraitSettings : ModSettings
 	{
-		private int defCount = 0;
+		public static bool defsChanged = false;
+		private static int defCount = 0;
 		private static Vector2 scrollVector2;
-		private List<DefPackage> packages = new List<DefPackage>();
+		private static List<DefPackage> packages = new List<DefPackage>();
 		public static Dictionary<string, GAT_FileInfo> fileInfoDict = new Dictionary<string, GAT_FileInfo>();
 
-		public void init()
+		public static void Init()
 		{
+			defCount = 0;
 			packages = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.GetDefPackagesInFolder("TraitDefs\\").ToList();
 
 			for (int i = 0; i < packages.Count; i++)
@@ -82,14 +90,22 @@ namespace Gewen_AdditionalTraits
 
 				if (fileInfoDict.ContainsKey(pack.fileName) == false)
 				{
-					fileInfoDict.Add(pack.fileName, new GAT_FileInfo(true));
+					fileInfoDict.Add(pack.fileName, new GAT_FileInfo(true, true));
+				}
+				else
+				{
+					fileInfoDict[pack.fileName].exists = true;
 				}
 
 				foreach (TraitDef item in pack)
 				{
 					if (fileInfoDict[pack.fileName].defInfo.ContainsKey(item.defName) == false)
 					{
-						fileInfoDict[pack.fileName].defInfo.Add(item.defName, new GAT_FileInfo.GAT_DefInfo(fileInfoDict[pack.fileName].enabled));
+						fileInfoDict[pack.fileName].defInfo.Add(item.defName, new GAT_FileInfo.GAT_DefInfo(fileInfoDict[pack.fileName].enabled, true));
+					}
+					else
+					{
+						fileInfoDict[pack.fileName].defInfo[item.defName].exists = true;
 					}
 
 					string desc = "";
@@ -101,6 +117,101 @@ namespace Gewen_AdditionalTraits
 				}
 				defCount += fileInfoDict[pack.fileName].defInfo.Count;
 			}
+
+			if (defsChanged == true)
+			{
+				HandleChanges();
+			}
+		}
+
+		private static int RecountDefs()
+		{
+			int count = 0;
+
+			foreach (var pack in packages)
+			{
+				foreach (TraitDef item in pack)
+				{
+					count++;
+				}
+			}
+
+			return count;
+		}
+
+		public static void HandleChanges()
+		{
+			List<string> fileHitList = new List<string>();
+
+			foreach (KeyValuePair<string, GAT_FileInfo> file in fileInfoDict)
+			{
+				List<string> defHitList = new List<string>();
+
+				foreach (KeyValuePair<string, GAT_FileInfo.GAT_DefInfo> def in file.Value.defInfo)
+				{
+					if (def.Value.fileChanged.NullOrEmpty() == false) //def moved, set new def's enabled
+					{
+						string newLocation = def.Value.fileChanged;
+						def.Value.fileChanged = "";
+						fileInfoDict[newLocation].defInfo[def.Key] = def.Value;
+
+						defHitList.Add(def.Key);
+					}
+					else if (def.Value.exists == false)
+					{
+						defHitList.Add(def.Key);
+					}
+				}
+
+				foreach (string hit in defHitList)
+				{
+					fileInfoDict[file.Key].defInfo.Remove(hit);
+				}
+				defHitList.Clear();
+
+				if (fileInfoDict[file.Key].defInfo.Count == 0)
+				{
+					fileHitList.Add(file.Key);
+				}
+			}
+
+			foreach (string hit in fileHitList)
+			{
+				fileInfoDict.Remove(hit);
+			}
+
+			defsChanged = false;
+			//defCount = RecountDefs();
+			Init();
+			//toStringDebug();
+		}
+
+		public static void toStringDebug()
+		{
+			string msg = "Packages:\n";
+
+			foreach (var item in packages)
+			{
+				msg += item.fileName + "\n";
+
+				foreach (var item2 in item.defs)
+				{
+					msg += "\t" + item2.defName + "\n";
+				}
+			}
+
+			msg += "Dict:\n";
+			foreach (var item in fileInfoDict)
+			{
+				msg += item.Key + ":\n";
+
+				foreach (var item2 in item.Value.defInfo)
+				{
+					msg += "\t" + item2.Key + "\n";
+				}
+			}
+
+			Log.Message(msg);
 		}
 
 		public override void ExposeData()
@@ -119,9 +230,9 @@ namespace Gewen_AdditionalTraits
 		//GUI Window
 		public void DoSettingsWindowContents(Rect inRect)
 		{
-			if (packages.Any() == false)
+			if (defCount == 0)
 			{
-				init();
+				Init();
 			}
 
 			Listing_Standard options = new Listing_Standard();
@@ -175,18 +286,18 @@ namespace Gewen_AdditionalTraits
 
 	public class GewensAddTraits_Mod : Mod
 	{
-		public TraitSettings settings = new TraitSettings();
+		public GAT_TraitSettings settings = new GAT_TraitSettings();
 
 		public GewensAddTraits_Mod(ModContentPack content) : base(content)
 		{
-			GetSettings<TraitSettings>();
+			GetSettings<GAT_TraitSettings>();
 		}
 
 		public override string SettingsCategory() => "Additional Traits";
 
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
-			GetSettings<TraitSettings>().DoSettingsWindowContents(inRect);
+			GetSettings<GAT_TraitSettings>().DoSettingsWindowContents(inRect);
 		}
 	}
 }

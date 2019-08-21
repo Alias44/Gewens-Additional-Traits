@@ -14,36 +14,49 @@ namespace Gewen_AdditionalTraits
 	[StaticConstructorOnStartup]
 	static class AdditionalTraits
 	{
+		//public static List<DefPackage> packages = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.GetDefPackagesInFolder("TraitDefs\\").ToList();
+
 		static AdditionalTraits()
 		{
-			foreach (KeyValuePair<string, GAT_FileInfo> file in TraitSettings.fileInfoDict)
+			GAT_TraitSettings.Init();
+
+			foreach (KeyValuePair<string, GAT_FileInfo> file in GAT_TraitSettings.fileInfoDict)
 			{
 				foreach (KeyValuePair<string, GAT_FileInfo.GAT_DefInfo> item in file.Value.defInfo)
 				{
-					if (item.Value.enabled == false)
+					TraitDef td = DefDatabase<TraitDef>.GetNamedSilentFail(item.Key);
+
+					if (td == null) //Def does not exist (it was deleted)
 					{
-						if (RemoveTrait(item.Key) == false)
+						GAT_TraitSettings.defsChanged = true;
+						GAT_TraitSettings.fileInfoDict[file.Key].defInfo[item.Key].exists = false;
+					}
+					else //Def exists
+					{
+						GAT_TraitSettings.fileInfoDict[file.Key].defInfo[item.Key].exists = true;
+
+						if (file.Value.exists == false || td.defPackage.fileName.Equals(file.Key) == false) //def exists, but the file does not (def moved to new file / file has been renamed)
 						{
-							//TraitSettings.fileInfoDict[file.Key].defInfo.Remove(item.Key);
+							GAT_TraitSettings.defsChanged = true;
+							GAT_TraitSettings.fileInfoDict[file.Key].defInfo[item.Key].fileChanged = td.defPackage.fileName;
+						}
+
+						if (item.Value.enabled == false) //def exists and needs to be removed
+						{
+							RemoveTrait(item.Key);
 						}
 					}
 				}
+			}
 
-				if (TraitSettings.fileInfoDict[file.Key] == null)
-				{
-					TraitSettings.fileInfoDict.Remove(file.Key);
-				}
+			if (GAT_TraitSettings.defsChanged == true)
+			{
+				GAT_TraitSettings.HandleChanges();
 			}
 		}
 
 		public static bool RemoveTrait(string traitDefName)
 		{
-			TraitDef td = DefDatabase<TraitDef>.GetNamed(traitDefName);
-			if (td == null)
-			{
-				return false;
-			}
-
 			Traverse.Create(typeof(DefDatabase<TraitDef>)).Method("Remove", new Type[]
 			{
 				typeof (TraitDef)
