@@ -11,6 +11,12 @@
 Original Description by Gewen: This mod adds (46) new traits to the game. May conflict with mods that modify traits or thoughts.
 
 Changelog:
+v3.1.0
+Added mod settings. Traits (or entire files of traits) can now be enabled or disabled from within the mod (a game reboot is required for changes to take effect (Please note that disabling any traits currently in use by your save will cause a \"Could not load reference to RimWorld.TraitDef named\" error on reload for each trait disabled. These errors can safely be dismissed and will not reoccur after saving again. Anyone that previously had a disabled trait will be randomly assigned a new one in its place.))
+Several traits have been relabeled
+Several traits have had their descriptions revised
+All traits that grant bonuses to skills now require that the person is actually capable of doing that skill
+
 v3.0.1
 Moved Heroes+Gods traits to a separate file for easy deletion by those that think they are over powered
 

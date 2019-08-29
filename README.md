@@ -22,6 +22,51 @@ Note: You can get future changes by using the command get pull origin master
 ## Changes
 Changelog:
 v3.0.1
+* Added mod settings. Traits (or entire files of traits) can now be enabled or disabled from within the mod (a game reboot is required for changes to take effect (Please note that disabling any traits currently in use by your save will cause a \"Could not load reference to RimWorld.TraitDef named\" error on reload for each trait disabled. These errors can safely be dismissed and will not reoccur after saving again. Anyone that previously had a disabled trait will be randomly assigned a new one in its place.))
+* Traits relabeled
+  * Professional Butcher -> Natural Butcher
+  * Professional Tailor -> Natural Tailor
+  * Avid Artist -> Eccentric Artist
+  * Mercurial -> Mercury's Blessing
+  * Invulnerable -> 	Achillean
+  * Goddess of Beauty -> Aphrodite's Grace
+  * Odysseus -> Odyssean
+  * God of war -> Ares' Wrath
+  * Goddess of the hunt -> Artemis' Blessing
+  * Smith of the Gods -> Vulcan's Fire
+  * God of medicine -> Imhotep's Wisdom
+  * Spirit of nature -> Sylvanus' Blessing
+* Descriptions updated (incorrect parts of speech or other grammatical improvements)
+  * Athletic
+  * Dexterous
+  * Genius Researcher
+  * Green Thumb
+  * Efficient Builder
+  * Fast miner
+  * Uncouth
+* New Descriptions (the old ones are commented out in the xml files if for whatever reason there is a preference for them)
+  * Careful Surgeon: NAM takes medicine very seriously. HE wants to do no harm and isn't afraid to take longer to do the job right.
+  * Natural Butcher: Sometimes it's hard to tell where the knife stops and NAME starts. People like to say that "if it bleeds NAME can skin it and split it".
+  * Natural Tailor: NAME likes making apparel. HE can work wonders with a needle and thread a hammer and anvil, not so much
+  * Eccentric Artist: NAME is an eccentric artist. HE has an affinity for the arts, but HE often gets lost in HIS work and forget to take care of HIMself.
+* Trait requirements 
+  * Now requires that pawns are capable of violence
+    * Perceptive
+	 * Achillean
+	 * Odyssean
+	 * Ares' Wrath
+	 * Artemis' Blessing
+  * Now requires that pawns are capable of social (recruiting, trading, etc)
+    * Persuasive: conflicts with the TradePriceImprovementOffset traits (and vice versa)
+	 * Aphrodite's Grace
+  * Now requires that pawns are capable of Artistic and PlantWork
+    * Sylvanus' Blessing
+  * Now requires that pawns are capable of Crafting and ManualSkilled
+    * Vulcan's Fire
+  * Now requires that pawns are capable of Caring
+    * Imhotep's Wisdom
+
+v3.0.1
 * Moved Heroes+Gods traits to a separate file for easy deletion by those that think they are over powered
 
 v3.0 (by Alias)

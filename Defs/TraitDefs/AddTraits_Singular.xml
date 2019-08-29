@@ -347,7 +347,7 @@
 			<li>
 				<label>Natural Tailor</label>
 				<!--description>{PAWN_nameDef} likes making apparel. Their tailoring speed is greatly increased, but they're terrible with smithing.</description-->
-				<description>{PAWN_nameDef} likes making apparel. {PAWN_pronoun} can work wonders with a needle and thread a hammer and anvil, not so much</description>
+				<description>{PAWN_nameDef} likes making apparel. {PAWN_pronoun} can work wonders with a needle and thread a hammer and anvil, not so much.</description>
 				<statOffsets>
 					<SmithingSpeed>-0.5</SmithingSpeed>
 					<TailoringSpeed>0.5</TailoringSpeed>
