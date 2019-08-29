@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 	<!-- Heroic Traits -->
-
 	<TraitDef>
 		<defName>Hercules</defName>
 		<commonality>0.01</commonality>
@@ -23,14 +22,161 @@
 				</skillGains>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>Achilles</defName>
+		<commonality>0.05</commonality>
+		<degreeDatas>
+			<li>
+				<label>Achillean</label>
+				<description>{PAWN_nameDef} is said to have been dipped in the river of death, {PAWN_pronoun} seems invulnerable in battle.</description>
+				<statOffsets>
+					<ImmunityGainSpeed>1</ImmunityGainSpeed>
+					<MoveSpeed>.5</MoveSpeed>
+					<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Melee</key>
+						<value>2</value>
+					</li>
+					<li>
+						<key>Shooting</key>
+						<value>2</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
 	</TraitDef>
 
+	<TraitDef>
+		<defName>Odysseus</defName>
+		<commonality>0.05</commonality>
+		<degreeDatas>
+			<li>
+				<label>Odyssean</label>
+				<description>Craftier by far than any mortal man, {PAWN_nameDef} is also a very capable warrior.</description>
+				<statOffsets>
+					<GlobalLearningFactor>1</GlobalLearningFactor>
+					<ShootingAccuracyPawn>.5</ShootingAccuracyPawn>
+					<MeleeHitChance>.5</MeleeHitChance>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Melee</key>
+						<value>1</value>
+					</li>
+					<li>
+						<key>Shooting</key>
+						<value>1</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+	</TraitDef>
+	
+	<!-- God Traits -->
+	<TraitDef>
+		<defName>Ares</defName>
+		<commonality>0.01</commonality>
+		<degreeDatas>
+			<li>
+				<label>Ares' Wrath</label>
+				<description>Feared by {PAWN_objective} enemies and worshiped by warriors, {PAWN_nameDef} is a bloodthirsty embodiment of war.</description>
+				<statOffsets>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+					<MoveSpeed>.5</MoveSpeed>
+					<MeleeHitChance>1</MeleeHitChance>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Melee</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+	</TraitDef>
+
+	<TraitDef>
+		<defName>Artemis</defName>
+		<commonality>0</commonality>
+		<commonalityFemale>0.01</commonalityFemale>
+		<degreeDatas>
+			<li>
+				<label>Artemis' Blessing</label>
+				<description>{PAWN_nameDef}'s natural instinct to protect and nurture the people led {PAWN_pronoun} to champion the hunt.</description>
+				<statOffsets>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+					<AimingDelayFactor>-1</AimingDelayFactor>
+					<ButcheryFleshSpeed>1</ButcheryFleshSpeed>
+					<CookSpeed>1</CookSpeed>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<ForagedNutritionPerDay>1</ForagedNutritionPerDay>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Shooting</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+	</TraitDef>
+	
+	<TraitDef>
+		<defName>Aphrodite</defName>
+		<commonality>0.01</commonality>
+		<degreeDatas>
+			<li>
+				<label>Aphrodite's Grace</label>
+				<description>So wondrous is {PAWN_nameDef} to behold that one look can inspire tears, desire, jealousy, and love.</description>
+				<statOffsets>
+					<NegotiationAbility>1</NegotiationAbility>
+					<SocialImpact>1</SocialImpact>
+					<TradePriceImprovement>1</TradePriceImprovement>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Social</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Social</li>
+		</requiredWorkTags>
+	</TraitDef>
+	
 	<TraitDef>
 		<defName>Mercury</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
-				<label>Mercurial</label>
+				<label>Mercury's Blessing</label>
 				<description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description>
 				<statOffsets>
 					<EatingSpeed>1</EatingSpeed>
@@ -51,141 +197,12 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>Aphrodite</defName>
-		<commonality>0.01</commonality>
-		<degreeDatas>
-			<li>
-				<label>Goddess of beauty</label>
-				<description>So wondrous is {PAWN_nameDef} to behold that one look can inspire tears, desire, jealousy, and love.</description>
-				<statOffsets>
-					<NegotiationAbility>1</NegotiationAbility>
-					<SocialImpact>1</SocialImpact>
-					<TradePriceImprovement>1</TradePriceImprovement>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Social</key>
-						<value>8</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-	</TraitDef>
-
-	<TraitDef>
-		<defName>Ares</defName>
-		<commonality>0.01</commonality>
-		<degreeDatas>
-			<li>
-				<label>God of war</label>
-				<description>Feared by {PAWN_objective} enemies and worshiped by warriors, {PAWN_nameDef} is a bloodthirsty God of War.</description>
-				<statOffsets>
-					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
-					<MoveSpeed>.5</MoveSpeed>
-					<MeleeHitChance>1</MeleeHitChance>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Melee</key>
-						<value>8</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-	</TraitDef>
-
-	<TraitDef>
-		<defName>Artemis</defName>
-		<commonality>0.01</commonality>
-		<degreeDatas>
-			<li>
-				<label>Goddess of the hunt</label>
-				<description>{PAWN_nameDef}'s natural instinct to protect and nurture the people led {PAWN_pronoun} to champion the hunt.</description>
-				<statOffsets>
-					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
-					<AimingDelayFactor>-1</AimingDelayFactor>
-					<ButcheryFleshSpeed>1</ButcheryFleshSpeed>
-					<CookSpeed>1</CookSpeed>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-					<ForagedNutritionPerDay>1</ForagedNutritionPerDay>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>8</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-	</TraitDef>
-
-	<TraitDef>
-		<defName>Vulcan</defName>
-		<commonality>0.01</commonality>
-		<degreeDatas>
-			<li>
-				<label>Smith of the Gods</label>
-				<description>{PAWN_nameDef} crafts with fire and forge as an artist would with paint and brush.</description>
-				<statOffsets>
-					<ConstructSuccessChance>2</ConstructSuccessChance>
-					<!--<ConstructFailChance>-1</ConstructFailChance>-->
-					<ConstructionSpeed>1</ConstructionSpeed>
-					<SmithingSpeed>1</SmithingSpeed>
-					<SmeltingSpeed>1</SmeltingSpeed>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Crafting</key>
-						<value>4</value>
-					</li>
-					<li>
-						<key>Construction</key>
-						<value>4</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-	</TraitDef>
-
-	<TraitDef>
-		<defName>Imhotep</defName>
-		<commonality>0.01</commonality>
-		<degreeDatas>
-			<li>
-				<label>God of medicine</label>
-				<description>{PAWN_nameDef} sends to sleep those who suffer, the new day bringing good health to them.</description>
-				<statOffsets>
-					<MedicalTendSpeed>1</MedicalTendSpeed>
-					<MedicalOperationSpeed>1</MedicalOperationSpeed>
-					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
-					<MedicalTendQuality>1</MedicalTendQuality>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Medicine</key>
-						<value>8</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-	</TraitDef>
-
-	<TraitDef>
 		<defName>Sylvanus</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
-				<label>Spirit of nature</label>
-				<description>Companion to all woodland creatures, both mundane and fantastic, {PAWN_nameDef} protects and nurtures those that respect {PAWN_objective} domain.</description>
+				<label>Sylvanus' Blessing</label>
+				<description>Companion to all woodland creatures, both mundane and fantastic, {PAWN_nameDef} protects and nurtures those that respect {PAWN_possessive} domain.</description>
 				<statOffsets>
 					<TameAnimalChance>1</TameAnimalChance>
 					<TrainAnimalChance>1</TrainAnimalChance>
@@ -208,58 +225,71 @@
 				</skillGains>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+			<li>Artistic</li>
+			<li>PlantWork</li>
+		</requiredWorkTags>
 	</TraitDef>
 
 	<TraitDef>
-		<defName>Achilles</defName>
-		<commonality>0.05</commonality>
+		<defName>Vulcan</defName>
+		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
-				<label>Invulnerable</label>
-				<description>Said to have been dipped in the river of death, {PAWN_nameDef} seems invulnerable in battle.</description>
+				<label>Vulcan's Fire</label>
+				<description>{PAWN_nameDef} crafts with fire and forge as an artist would with paint and brush.</description>
 				<statOffsets>
-					<ImmunityGainSpeed>1</ImmunityGainSpeed>
-					<MoveSpeed>.5</MoveSpeed>
-					<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
-					<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+					<ConstructSuccessChance>2</ConstructSuccessChance>
+					<!--<ConstructFailChance>-1</ConstructFailChance>-->
+					<ConstructionSpeed>1</ConstructionSpeed>
+					<SmithingSpeed>1</SmithingSpeed>
+					<SmeltingSpeed>1</SmeltingSpeed>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
 					<li>
-						<key>Melee</key>
-						<value>2</value>
+						<key>Crafting</key>
+						<value>4</value>
 					</li>
 					<li>
-						<key>Shooting</key>
-						<value>2</value>
+						<key>Construction</key>
+						<value>4</value>
 					</li>
 				</skillGains>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+			<li>Crafting</li>
+			<li>ManualSkilled</li>
+		</requiredWorkTags>
 	</TraitDef>
-
+	
 	<TraitDef>
-		<defName>Odysseus</defName>
-		<commonality>0.05</commonality>
+		<defName>Imhotep</defName>
+		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
-				<label>Odysseus</label>
-				<description>Craftier by far than any mortal man, {PAWN_nameDef} is also a very capable warrior.</description>
+				<label>Imhotep's Wisdom</label>
+				<description>{PAWN_nameDef} sends to sleep those who suffer, the new day bringing good health to them.</description>
 				<statOffsets>
-					<GlobalLearningFactor>1</GlobalLearningFactor>
-					<ShootingAccuracyPawn>.5</ShootingAccuracyPawn>
-					<MeleeHitChance>.5</MeleeHitChance>
+					<MedicalTendSpeed>1</MedicalTendSpeed>
+					<MedicalOperationSpeed>1</MedicalOperationSpeed>
+					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
+					<MedicalTendQuality>1</MedicalTendQuality>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
 					<li>
-						<key>Melee</key>
-						<value>1</value>
-					</li>
-					<li>
-						<key>Shooting</key>
-						<value>1</value>
+						<key>Medicine</key>
+						<value>8</value>
 					</li>
 				</skillGains>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+			<li>Caring</li>
+		</requiredWorkTags>
 	</TraitDef>
 </Defs>

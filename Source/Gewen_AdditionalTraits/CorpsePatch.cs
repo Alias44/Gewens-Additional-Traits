@@ -5,7 +5,7 @@ using Harmony;
 using RimWorld;
 using Verse;
 
-namespace Gewen_AdditionalTraits
+/*namespace Gewen_AdditionalTraits
 {
 	[StaticConstructorOnStartup]
 	public class HarmonyPatches
@@ -28,12 +28,12 @@ namespace Gewen_AdditionalTraits
 
 			
 			//Fix later
-			/*if (__result.pawn.story.traits.HasTrait(TraitDef.Named("Morbid")))
+			if (__result.pawn.story.traits.HasTrait(TraitDef.Named("Morbid")))
 			{
 				Thought_MemoryObservation memoryObservation = !__instance.IsNotFresh() ? (Thought_MemoryObservation)ThoughtMaker.MakeThought(ThoughtDef.Named("ObservedLayingCorpseMorbid")) : (Thought_MemoryObservation)ThoughtMaker.MakeThought(ThoughtDef.Named("ObservedLayingRottingCorpseMorbid"));
 				memoryObservation.Target = (Thing)__instance;
 				__result = (Thought_Memory)memoryObservation;
-			}*/
+			}
 		}
 	}
-}
+}*/

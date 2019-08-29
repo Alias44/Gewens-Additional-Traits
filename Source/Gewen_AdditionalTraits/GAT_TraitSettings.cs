@@ -244,14 +244,24 @@ namespace Gewen_AdditionalTraits
 			GUI.color = Color.red;
 			options.Label("All changes require a restart to take effect");
 			Text.Font = GameFont.Small;
+			GUI.color = Color.yellow;
+			string warningMsg = "Please note that disabling any traits currently in use by your save will cause a \"Could not load reference to RimWorld.TraitDef named\" error on reload for each trait disabled. " +
+				"These errors can safely be dismissed and will not reoccur after saving again. " +
+				"Anyone that previously had a disabled trait will be randomly assigned a new one in its place.";
+			float warnMsgHeight = Text.CalcHeight(warningMsg, r.width);
+			options.Label(warningMsg);
 			GUI.color = defaultColor;
 			options.Gap();
-
+			
 			float gapHeight = 12;
 			Rect scroller = r.GetInnerRect();
+			Rect listRect = r.GetInnerRect().TopPart(.9f);
+			listRect.y += warnMsgHeight;
+			listRect.height -= warnMsgHeight;
+
 			scroller.width -= 20f; //20 is width of scroll bar
 			scroller.height = (defCount + fileInfoDict.Count) * (Text.LineHeight + (options.verticalSpacing)) + (fileInfoDict.Count * gapHeight);
-			Widgets.BeginScrollView(r.GetInnerRect().TopPart(.9f), ref scrollVector2, scroller);
+			Widgets.BeginScrollView(listRect, ref scrollVector2, scroller);
 			options.Begin(scroller);
 
 			for (int i = 0; i < packages.Count; i++)
@@ -260,7 +270,7 @@ namespace Gewen_AdditionalTraits
 
 				bool fileStatus = fileInfoDict[pack.fileName].enabled;
 
-				options.CheckboxLabeled(pack.fileName, ref fileStatus, "enable/disable all defs in file");
+				options.CheckboxLabeled(pack.fileName, ref fileStatus, (fileStatus==true ? "Disable" : "Enable")+" all defs in file");
 				foreach (TraitDef def in pack.defs)
 				{
 					bool defStatus = fileStatus;

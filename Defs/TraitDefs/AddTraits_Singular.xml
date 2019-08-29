@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-
 	<!--=================== Thought Related ===================-->
-
 	<TraitDef>
 		<defName>Confident</defName>
 		<commonality>0.4</commonality>
@@ -22,10 +20,8 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
-
+	
 	<!--=================== Weight Related ===================-->
-
 	<TraitDef>
 		<defName>Overweight</defName>
 		<commonality>0.25</commonality>
@@ -44,14 +40,14 @@
 			<li>Athletic</li>
 		</conflictingTraits>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>Athletic</defName>
 		<commonality>0.25</commonality>
 		<degreeDatas>
 			<li>
 				<label>Athletic</label>
-				<description>{PAWN_nameDef} has honed {PAWN_objective} mind and body for most of {PAWN_objective} life.</description>
+				<description>{PAWN_nameDef} has honed {PAWN_possessive} mind and body for most of {PAWN_possessive} life.</description>
 				<statOffsets>
 					<MoveSpeed>0.35</MoveSpeed>
 					<WorkSpeedGlobal>0.25</WorkSpeedGlobal>
@@ -78,16 +74,15 @@
 			<li>Overweight</li>
 		</conflictingTraits>
 	</TraitDef>
-
+	
 	<!--=================== Custom ===================-->
-
 	<TraitDef>
 		<defName>Dexterous</defName>
 		<commonality>0.4</commonality>
 		<degreeDatas>
 			<li>
 				<label>Dexterous</label>
-				<description>{PAWN_nameDef} demonstrates neat skill, especially with {PAWN_objective} hands.</description>
+				<description>{PAWN_nameDef} demonstrates neat skill, especially with {PAWN_possessive} hands.</description>
 				<statOffsets>
 					<WorkSpeedGlobal>0.25</WorkSpeedGlobal>
 					<AimingDelayFactor>-0.10</AimingDelayFactor>
@@ -105,7 +100,7 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>Perceptive</defName>
 		<commonality>0.3</commonality>
@@ -125,10 +120,13 @@
 				</skillGains>
 			</li>
 		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
 	</TraitDef>
-
+	
 	<TraitDef>
-	<defName>Clean</defName>
+		<defName>Clean</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
@@ -152,7 +150,7 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>Nearsighted</defName>
 		<commonality>0.3</commonality>
@@ -167,13 +165,13 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>QuickLearner</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
-				<label>Quick learner</label>
+				<label>Quick Learner</label>
 				<description>{PAWN_nameDef} has always picked up skills pretty quickly.</description>
 				<statOffsets>
 					<GlobalLearningFactor>0.25</GlobalLearningFactor>
@@ -181,7 +179,7 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>Glutton</defName>
 		<commonality>0.3</commonality>
@@ -195,7 +193,7 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<!-- Redundant with super-immune
 	<TraitDef>
 		<defName>Healthy</defName>
@@ -210,7 +208,7 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>-->
-
+	
 	<TraitDef>
 		<defName>Persuasive</defName>
 		<commonality>0.2</commonality>
@@ -225,8 +223,14 @@
 				</statOffsets>
 			</li>
 		</degreeDatas>
+		<conflictingTraits>
+			<li>TradePriceImprovementOffset</li>
+		</conflictingTraits>
+		<requiredWorkTags>
+			<li>Social</li>
+		</requiredWorkTags>
 	</TraitDef>
-
+	
 	<!-- Basically the same as Psychopath
 	<TraitDef>
 		<defName>ColdHearted</defName>
@@ -243,18 +247,18 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>-->
-
+	
 	<TraitDef>
 		<defName>HeavySleeper</defName>
 		<commonality>0.4</commonality>
 		<degreeDatas>
 			<li>
-				<label>Heavy sleeper</label>
+				<label>Heavy Sleeper</label>
 				<description>{PAWN_nameDef} could sleep through an earthquake.</description>
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>Pervert</defName>
 		<commonality>0.2</commonality>
@@ -271,7 +275,7 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>Morbid</defName>
 		<commonality>0.8</commonality>
@@ -282,16 +286,16 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
-
-	<!--=================== Professions ===================-->
 	
+	<!--=================== Professions ===================-->
 	<TraitDef>
 		<defName>CarefulSurgeon</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Careful surgeon</label>
-				<description>{PAWN_nameDef} is a pretty good surgeon, but they takes a bit more time to complete an operation.</description>
+				<label>Careful Surgeon</label>
+				<!--description>{PAWN_nameDef} is a pretty good surgeon, but they take a bit more time to complete an operation.</description-->
+				<description>{PAWN_nameDef} takes medicine very seriously. {PAWN_pronoun} wants to do no harm and isn't afraid to take longer to do the job right.</description>
 				<statOffsets>
 					<MedicalOperationSpeed>0.2</MedicalOperationSpeed>
 					<MedicalTendSpeed>0.2</MedicalTendSpeed>
@@ -310,14 +314,15 @@
 			<li>Doctor</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>ProfessionalButcher</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Professional butcher</label>
-				<description>{PAWN_nameDef} likes dressing animals. Their butchering speed is greatly increased, but they're terrible with mechanoids.</description>
+				<label>Natural Butcher</label>
+				<!--description>{PAWN_nameDef} likes dressing animals. Their butchering speed is greatly increased, but they're terrible with mechanoids.</description-->
+				<description>Sometimes it's hard to tell where the knife stops and {PAWN_nameDef} starts. People like to say that "if it bleeds {PAWN_nameDef} can skin it and split it".</description>
 				<statOffsets>
 					<ButcheryMechanoidSpeed>-0.5</ButcheryMechanoidSpeed>
 					<ButcheryFleshSpeed>0.5</ButcheryFleshSpeed>
@@ -334,14 +339,15 @@
 			<li>Cooking</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>ProfessionalTailor</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Professional tailor</label>
-				<description>{PAWN_nameDef} likes making apparel. Their tailoring speed is greatly increased, but they're terrible with smithing.</description>
+				<label>Natural Tailor</label>
+				<!--description>{PAWN_nameDef} likes making apparel. Their tailoring speed is greatly increased, but they're terrible with smithing.</description-->
+				<description>{PAWN_nameDef} likes making apparel. {PAWN_pronoun} can work wonders with a needle and thread a hammer and anvil, not so much</description>
 				<statOffsets>
 					<SmithingSpeed>-0.5</SmithingSpeed>
 					<TailoringSpeed>0.5</TailoringSpeed>
@@ -358,13 +364,13 @@
 			<li>Tailoring</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>LovedByAnimals</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Loved by animals</label>
+				<label>Loved by Animals</label>
 				<description>{PAWN_nameDef} is loved by animals, but people don't feel quite the same.</description>
 				<statOffsets>
 					<TrainAnimalChance>0.5</TrainAnimalChance>
@@ -383,14 +389,15 @@
 			<li>Handling</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>AvidArtist</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Avid artist</label>
-				<description>{PAWN_nameDef} is an avid artist. Their sculpting speed is greatly increased, but they have a weaker constitution and mind.</description>
+				<label>Eccentric Artist</label>
+				<!--description>{PAWN_nameDef} is an eccentric artist. Their sculpting speed is greatly increased, but they have a weaker constitution and mind.</description-->
+				<description>{PAWN_nameDef} is an eccentric artist. {PAWN_pronoun} has an affinity for the arts, {PAWN_pronoun} often gets lost in {PAWN_possessive} work and forget to take care of {PAWN_objective}self.</description>
 				<statOffsets>
 					<SculptingSpeed>0.5</SculptingSpeed>
 					<ToxicSensitivity>0.1</ToxicSensitivity>
@@ -410,14 +417,14 @@
 			<li>Art</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>GeniusResearcher</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Genius inventor</label>
-				<description>Strange new ideas just appear in the mind of {PAWN_nameDef}. Researching new technology comes easily to {PAWN_nameDef}, but they always seem distracted.</description>
+				<label>Genius Inventor</label>
+				<description>Strange new ideas just appear in the mind of {PAWN_nameDef}. Researching new technology comes easily to {PAWN_nameDef}, but {PAWN_pronoun} always seems distracted.</description>
 				<statOffsets>
 					<ResearchSpeed>0.7</ResearchSpeed>
 					<WorkSpeedGlobal>-0.2</WorkSpeedGlobal>
@@ -437,14 +444,14 @@
 			<li>Research</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>GreenestThumb</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Green thumb</label>
-				<description>{PAWN_nameDef} has a passion for gardening. They know exactly what a plant needs to grow happily.</description>
+				<label>Green Thumb</label>
+				<description>{PAWN_nameDef} has a passion for gardening. {PAWN_pronoun} knows exactly what a plant needs to grow happily.</description>
 				<statOffsets>
 					<PlantWorkSpeed>0.5</PlantWorkSpeed>
 					<PlantHarvestYield>1.5</PlantHarvestYield>
@@ -463,14 +470,14 @@
 			<li>PlantWork</li>
 		</requiredWorkTags>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>EfficientBuilder</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Efficient builder</label>
-				<description>{PAWN_nameDef} doesn't like to waste materials. They take care in their work.</description>
+				<label>Efficient Builder</label>
+				<description>{PAWN_nameDef} doesn't like to waste materials. {PAWN_pronoun} takes great care in {PAWN_possessive} work.</description>
 				<statOffsets>
 					<ConstructionSpeed>-0.1</ConstructionSpeed>
 					<ConstructSuccessChance>1.5</ConstructSuccessChance>
@@ -487,14 +494,14 @@
 			<li>Construction</li>
 		</requiredWorkTypes>
 	</TraitDef>
-
+	
 	<TraitDef>
 		<defName>FastMiner</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
-				<label>Fast miner</label>
-				<description>{PAWN_nameDef} knows how to exploit the cleavage of rocks. They don't understand why plants are so much more fragile, though.</description>
+				<label>Fast Miner</label>
+				<description>{PAWN_nameDef} knows how to exploit the cleavage of rocks. {PAWN_pronoun} doesn't understand why plants are so much more fragile though.</description>
 				<statOffsets>
 					<MiningSpeed>0.5</MiningSpeed>
 					<SmoothingSpeed>0.5</SmoothingSpeed>
