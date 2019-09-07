@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<ThoughtDef>
-		<defName>ObservedLayingCorpseMorbid</defName>
+		<defName>GAT_ObservedLayingCorpseMorbid</defName>
 		<!--icon>Things/Mote/ThoughtSymbol/Skull</icon-->
 		<showBubble>true</showBubble>
 		<thoughtClass>Thought_MemoryObservation</thoughtClass>
@@ -9,7 +9,7 @@
 		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
 		<stackLimit>3</stackLimit>
 		<requiredTraits>
-			<li>Morbid</li>
+			<li>GAT_Morbid</li>
 		</requiredTraits>
 		<stages>
 			<li>
@@ -21,7 +21,7 @@
 	</ThoughtDef>
 
 	<ThoughtDef>
-		<defName>ObservedLayingRottingCorpseMorbid</defName>
+		<defName>GAT_ObservedLayingRottingCorpseMorbid</defName>
 		<!--icon>Things/Mote/ThoughtSymbol/Skull</icon-->
 		<showBubble>true</showBubble>
 		<thoughtClass>Thought_MemoryObservation</thoughtClass>
@@ -29,7 +29,7 @@
 		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
 		<stackLimit>5</stackLimit>
 		<requiredTraits>
-			<li>Morbid</li>
+			<li>GAT_Morbid</li>
 		</requiredTraits>
 		<stages>
 			<li>

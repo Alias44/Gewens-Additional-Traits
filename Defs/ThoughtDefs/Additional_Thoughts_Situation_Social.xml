@@ -4,7 +4,7 @@
   <!-- affecting opinion -->
 
   <ThoughtDef>
-    <defName>Perverted</defName>
+    <defName>GAT_Perverted</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
     <workerClass>Gewen_AdditionalTraits.ThoughtWorker_Perv</workerClass>
     <validWhileDespawned>true</validWhileDespawned>

@@ -5,7 +5,7 @@ using Harmony;
 using RimWorld;
 using Verse;
 
-/*namespace Gewen_AdditionalTraits
+namespace Gewen_AdditionalTraits
 {
 	[StaticConstructorOnStartup]
 	public class HarmonyPatches
@@ -15,17 +15,16 @@ using Verse;
 		static HarmonyPatches ()
 		{
 			HarmonyInstance harmony = HarmonyInstance.Create("Gewen_AdditionalTraits.main");
-			harmony.Patch(AccessTools.Method(typeof(Corpse), "GiveObservedThought"), null, new HarmonyMethod(patchType, nameof(MorbidCorpse)));
+			//harmony.Patch(AccessTools.Method(typeof(Corpse), "GiveObservedThought"), null, new HarmonyMethod(patchType, nameof(MorbidCorpse)));
+			harmony.Patch(AccessTools.Method(typeof(BackCompatibility), "BackCompatibleDefName"), null, new HarmonyMethod(patchType, nameof(BackCompatPatch)));
 
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 		}
 
-		[HarmonyPostfix]
+		/*[HarmonyPostfix]
 		public static void MorbidCorpse (Corpse __instance, ref Thought_Memory __result)
 		{
-			Log.Message(__result.def.ToString());
-			
-
+			//Log.Message(__result.def.ToString());
 			
 			//Fix later
 			if (__result.pawn.story.traits.HasTrait(TraitDef.Named("Morbid")))
@@ -34,6 +33,24 @@ using Verse;
 				memoryObservation.Target = (Thing)__instance;
 				__result = (Thought_Memory)memoryObservation;
 			}
+		}*/
+
+		[HarmonyPostfix]
+		public static void BackCompatPatch(ref System.Type defType, ref string defName, ref string __result)
+		{
+			if (GenDefDatabase.GetDefSilentFail(defType, __result, false) == null)
+			{
+				if (defType == typeof(TraitDef) || defType == typeof(ThoughtDef))
+				{
+					var def = GenDefDatabase.GetDefSilentFail(defType, "GAT_" + defName, false);
+
+					if (def != null)
+					{
+						__result = def.defName;
+					}
+					return;
+				}
+			}
 		}
 	}
-}*/
+}

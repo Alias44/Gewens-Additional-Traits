@@ -36,7 +36,8 @@ namespace Gewen_AdditionalTraits
 			public void ExposeData()
 			{
 				Scribe_Values.Look(ref enabled, "defEnabled", true);
-				Scribe_Values.Look(ref description, "defDescription", "");
+
+				//Scribe_Values.Look(ref description, "defDescription", ""); //Saving these is kind of pointless because they get rebuilt on load anyway (it needs to do that so that changes to the description are loaded)
 			}
 		}
 
@@ -149,15 +150,22 @@ namespace Gewen_AdditionalTraits
 
 				foreach (KeyValuePair<string, GAT_FileInfo.GAT_DefInfo> def in file.Value.defInfo)
 				{
-					if (def.Value.fileChanged.NullOrEmpty() == false) //def moved, set new def's enabled
+					try
 					{
-						string newLocation = def.Value.fileChanged;
-						def.Value.fileChanged = "";
-						fileInfoDict[newLocation].defInfo[def.Key] = def.Value;
+						if (def.Value.fileChanged.NullOrEmpty() == false) //def moved, set new def's enabled
+						{
+							string newLocation = def.Value.fileChanged;
+							def.Value.fileChanged = "";
+							fileInfoDict[newLocation].defInfo[def.Key] = def.Value;
 
-						defHitList.Add(def.Key);
+							defHitList.Add(def.Key);
+						}
+						else if (def.Value.exists == false)
+						{
+							defHitList.Add(def.Key);
+						}
 					}
-					else if (def.Value.exists == false)
+					catch (System.Collections.Generic.KeyNotFoundException)
 					{
 						defHitList.Add(def.Key);
 					}

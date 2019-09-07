@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 	<TraitDef>
-		<defName>TradePriceImprovementOffset</defName>
+		<defName>GAT_TradePriceImprovementOffset</defName>
 		<commonality>1</commonality>
 		<degreeDatas>
 			<li>
@@ -30,7 +30,7 @@
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
-			<li>Persuasive</li>
+			<li>GAT_Persuasive</li>
 		</conflictingTraits>
 		<requiredWorkTags>
 			<li>Social</li>
@@ -38,7 +38,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>SocialImpactOffset</defName>
+		<defName>GAT_SocialImpactOffset</defName>
 		<commonality>1</commonality>
 		<degreeDatas>
 			<li>
@@ -70,7 +70,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>DiplomacyPowerOffset</defName>
+		<defName>GAT_DiplomacyPowerOffset</defName>
 		<commonality>1</commonality>
 		<degreeDatas>
 			<li>
@@ -104,7 +104,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>ShootingOffsetTrait</defName>
+		<defName>GAT_ShootingOffsetTrait</defName>
 		<commonality>1</commonality>
 		<degreeDatas>
 			<li>

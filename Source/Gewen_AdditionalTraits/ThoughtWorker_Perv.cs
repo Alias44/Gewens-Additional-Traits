@@ -13,7 +13,7 @@ namespace Gewen_AdditionalTraits
 		{
 			if (!other.RaceProps.Humanlike || !RelationsUtility.PawnsKnowEachOther(pawn, other))
 				return (ThoughtState)false;
-			if (!other.story.traits.HasTrait(TraitDef.Named("Pervert")))
+			if (!other.story.traits.HasTrait(TraitDef.Named("GAT_Pervert")))
 				return (ThoughtState)false;
 			/*if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
 				return (ThoughtState)false;*/

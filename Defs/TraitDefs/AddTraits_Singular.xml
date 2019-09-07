@@ -2,7 +2,7 @@
 <Defs>
 	<!--=================== Thought Related ===================-->
 	<TraitDef>
-		<defName>Confident</defName>
+		<defName>GAT_Confident</defName>
 		<commonality>0.4</commonality>
 		<degreeDatas>
 			<li>
@@ -23,7 +23,7 @@
 	
 	<!--=================== Weight Related ===================-->
 	<TraitDef>
-		<defName>Overweight</defName>
+		<defName>GAT_Overweight</defName>
 		<commonality>0.25</commonality>
 		<degreeDatas>
 			<li>
@@ -37,12 +37,12 @@
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
-			<li>Athletic</li>
+			<li>GAT_Athletic</li>
 		</conflictingTraits>
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Athletic</defName>
+		<defName>GAT_Athletic</defName>
 		<commonality>0.25</commonality>
 		<degreeDatas>
 			<li>
@@ -71,13 +71,13 @@
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
-			<li>Overweight</li>
+			<li>GAT_Overweight</li>
 		</conflictingTraits>
 	</TraitDef>
 	
 	<!--=================== Custom ===================-->
 	<TraitDef>
-		<defName>Dexterous</defName>
+		<defName>GAT_Dexterous</defName>
 		<commonality>0.4</commonality>
 		<degreeDatas>
 			<li>
@@ -102,7 +102,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Perceptive</defName>
+		<defName>GAT_Perceptive</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
@@ -126,7 +126,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Clean</defName>
+		<defName>GAT_Clean</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
@@ -152,7 +152,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Nearsighted</defName>
+		<defName>GAT_Nearsighted</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
@@ -167,7 +167,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>QuickLearner</defName>
+		<defName>GAT_QuickLearner</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
@@ -181,7 +181,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Glutton</defName>
+		<defName>GAT_Glutton</defName>
 		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
@@ -210,7 +210,7 @@
 	</TraitDef>-->
 	
 	<TraitDef>
-		<defName>Persuasive</defName>
+		<defName>GAT_Persuasive</defName>
 		<commonality>0.2</commonality>
 		<degreeDatas>
 			<li>
@@ -224,7 +224,7 @@
 			</li>
 		</degreeDatas>
 		<conflictingTraits>
-			<li>TradePriceImprovementOffset</li>
+			<li>GAT_TradePriceImprovementOffset</li>
 		</conflictingTraits>
 		<requiredWorkTags>
 			<li>Social</li>
@@ -249,7 +249,7 @@
 	</TraitDef>-->
 	
 	<TraitDef>
-		<defName>HeavySleeper</defName>
+		<defName>GAT_HeavySleeper</defName>
 		<commonality>0.4</commonality>
 		<degreeDatas>
 			<li>
@@ -260,7 +260,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Pervert</defName>
+		<defName>GAT_Pervert</defName>
 		<commonality>0.2</commonality>
 		<degreeDatas>
 			<li>
@@ -277,7 +277,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Morbid</defName>
+		<defName>GAT_Morbid</defName>
 		<commonality>0.8</commonality>
 		<degreeDatas>
 			<li>
@@ -289,7 +289,7 @@
 	
 	<!--=================== Professions ===================-->
 	<TraitDef>
-		<defName>CarefulSurgeon</defName>
+		<defName>GAT_CarefulSurgeon</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -316,7 +316,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>ProfessionalButcher</defName>
+		<defName>GAT_ProfessionalButcher</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -341,7 +341,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>ProfessionalTailor</defName>
+		<defName>GAT_ProfessionalTailor</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -366,7 +366,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>LovedByAnimals</defName>
+		<defName>GAT_LovedByAnimals</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -391,7 +391,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>AvidArtist</defName>
+		<defName>GAT_AvidArtist</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -419,7 +419,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>GeniusResearcher</defName>
+		<defName>GAT_GeniusResearcher</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -446,7 +446,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>GreenestThumb</defName>
+		<defName>GAT_GreenestThumb</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -472,7 +472,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>EfficientBuilder</defName>
+		<defName>GAT_EfficientBuilder</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>
@@ -496,7 +496,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>FastMiner</defName>
+		<defName>GAT_FastMiner</defName>
 		<commonality>0.1</commonality>
 		<degreeDatas>
 			<li>

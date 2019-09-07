@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdditionalTraits.cs" />
-    <Compile Include="CorpsePatch.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThoughtWorker_Perv.cs" />
     <Compile Include="GAT_TraitSettings.cs" />

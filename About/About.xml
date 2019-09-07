@@ -11,6 +11,10 @@
 Original Description by Gewen: This mod adds (46) new traits to the game. May conflict with mods that modify traits or thoughts.
 
 Changelog:
+v3.1.1
+Changed defNames to avoid/fix collisions with other mods that add traits
+Added patch to handle the transition to the new defsNames
+
 v3.1.0
 Added mod settings. Traits (or entire files of traits) can now be enabled or disabled from within the mod (a game reboot is required for changes to take effect (Please note that disabling any traits currently in use by your save will cause a \"Could not load reference to RimWorld.TraitDef named\" error on reload for each trait disabled. These errors can safely be dismissed and will not reoccur after saving again. Anyone that previously had a disabled trait will be randomly assigned a new one in its place.))
 Several traits have been relabeled

@@ -2,7 +2,7 @@
 <Defs>
 	<!-- Heroic Traits -->
 	<TraitDef>
-		<defName>Hercules</defName>
+		<defName>GAT_Hercules</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
@@ -28,7 +28,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Achilles</defName>
+		<defName>GAT_Achilles</defName>
 		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
@@ -58,7 +58,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>Odysseus</defName>
+		<defName>GAT_Odysseus</defName>
 		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
@@ -88,7 +88,7 @@
 	
 	<!-- God Traits -->
 	<TraitDef>
-		<defName>Ares</defName>
+		<defName>GAT_Ares</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
@@ -115,7 +115,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>Artemis</defName>
+		<defName>GAT_Artemis</defName>
 		<commonality>0</commonality>
 		<commonalityFemale>0.01</commonalityFemale>
 		<degreeDatas>
@@ -145,7 +145,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Aphrodite</defName>
+		<defName>GAT_Aphrodite</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
@@ -172,7 +172,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Mercury</defName>
+		<defName>GAT_Mercury</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
@@ -197,7 +197,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>Sylvanus</defName>
+		<defName>GAT_Sylvanus</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
@@ -232,7 +232,7 @@
 	</TraitDef>
 
 	<TraitDef>
-		<defName>Vulcan</defName>
+		<defName>GAT_Vulcan</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>
@@ -266,7 +266,7 @@
 	</TraitDef>
 	
 	<TraitDef>
-		<defName>Imhotep</defName>
+		<defName>GAT_Imhotep</defName>
 		<commonality>0.01</commonality>
 		<degreeDatas>
 			<li>

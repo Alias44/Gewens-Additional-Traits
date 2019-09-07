@@ -2,11 +2,11 @@
 <Defs>
 
   <ThoughtDef>
-    <defName>MoodOffsetConfident</defName>
+    <defName>GAT_MoodOffsetConfident</defName>
     <workerClass>ThoughtWorker_AlwaysActive</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <requiredTraits>
-	  <li>Confident</li>
+	  <li>GAT_Confident</li>
     </requiredTraits>
     <requiredTraitsDegree>2</requiredTraitsDegree>
     <stages>
@@ -19,11 +19,11 @@
   </ThoughtDef>
 
   <ThoughtDef>
-    <defName>MoodOffsetShootingAmateur</defName>
+    <defName>GAT_MoodOffsetShootingAmateur</defName>
     <workerClass>ThoughtWorker_IsCarryingRangedWeapon</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <requiredTraits>
-      <li>ShootingOffsetTrait</li>
+      <li>GAT_ShootingOffsetTrait</li>
     </requiredTraits>
     <requiredTraitsDegree>-1</requiredTraitsDegree>
     <stages>
@@ -36,11 +36,11 @@
   </ThoughtDef>
   
   <ThoughtDef>
-    <defName>MoodOffsetShootingEnthusiast</defName>
+    <defName>GAT_MoodOffsetShootingEnthusiast</defName>
     <workerClass>ThoughtWorker_IsCarryingRangedWeapon</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <requiredTraits>
-      <li>ShootingOffsetTrait</li>
+      <li>GAT_ShootingOffsetTrait</li>
     </requiredTraits>
     <requiredTraitsDegree>1</requiredTraitsDegree>
     <stages>
@@ -53,11 +53,11 @@
   </ThoughtDef>
   
   <ThoughtDef>
-    <defName>MoodOffsetShootingProfessional</defName>
+    <defName>GAT_MoodOffsetShootingProfessional</defName>
     <workerClass>ThoughtWorker_IsCarryingRangedWeapon</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <requiredTraits>
-      <li>ShootingOffsetTrait</li>
+      <li>GAT_ShootingOffsetTrait</li>
     </requiredTraits>
     <requiredTraitsDegree>2</requiredTraitsDegree>
     <stages>

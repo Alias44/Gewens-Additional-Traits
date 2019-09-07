@@ -21,7 +21,11 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
-v3.0.1
+v3.1.1
+* Changed defNames to have a "GAT_" prefix to avoid/fix collisions with other mods that add traits
+* Added harmony patch to handle the transition to the new defsNames
+
+v3.1.0
 * Added mod settings. Traits (or entire files of traits) can now be enabled or disabled from within the mod (a game reboot is required for changes to take effect (Please note that disabling any traits currently in use by your save will cause a \"Could not load reference to RimWorld.TraitDef named\" error on reload for each trait disabled. These errors can safely be dismissed and will not reoccur after saving again. Anyone that previously had a disabled trait will be randomly assigned a new one in its place.))
 * Traits relabeled
   * Professional Butcher -> Natural Butcher
@@ -57,7 +61,7 @@ v3.0.1
 	 * Ares' Wrath
 	 * Artemis' Blessing
   * Now requires that pawns are capable of social (recruiting, trading, etc)
-    * Persuasive: conflicts with the TradePriceImprovementOffset traits (and vice versa)
+    * Persuasive
 	 * Aphrodite's Grace
   * Now requires that pawns are capable of Artistic and PlantWork
     * Sylvanus' Blessing
@@ -65,6 +69,8 @@ v3.0.1
     * Vulcan's Fire
   * Now requires that pawns are capable of Caring
     * Imhotep's Wisdom
+  * Trait Conflicts
+    * Persuasive cannot be applied to pawns with TradePriceImprovementOffset traits (and vice versa)
 
 v3.0.1
 * Moved Heroes+Gods traits to a separate file for easy deletion by those that think they are over powered
