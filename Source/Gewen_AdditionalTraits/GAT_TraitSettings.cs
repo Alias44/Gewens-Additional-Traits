@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 
-using Harmony;
+using HarmonyLib;
 
 
 namespace Gewen_AdditionalTraits
@@ -22,7 +22,6 @@ namespace Gewen_AdditionalTraits
 			public GAT_DefInfo()
 			{
 				this.enabled = true;
-
 				this.description = "";
 			}
 
@@ -76,48 +75,50 @@ namespace Gewen_AdditionalTraits
 	{
 		public static bool defsChanged = false;
 		private static int defCount = 0;
+		private static int fileCount = 0;
 		private static Vector2 scrollVector2;
-		private static List<DefPackage> packages = new List<DefPackage>();
+		//private static List<DefPackage> packages = new List<DefPackage>();
+		private static List<TraitDef> gatTraitDefs = new List<TraitDef>();
+
 		public static Dictionary<string, GAT_FileInfo> fileInfoDict = new Dictionary<string, GAT_FileInfo>();
 
 		public static void Init()
 		{
-			defCount = 0;
-			packages = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.GetDefPackagesInFolder("TraitDefs\\").ToList();
-
-			for (int i = 0; i < packages.Count; i++)
+			//packages = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.GetDefPackagesInFolder("TraitDefs\\").ToList();
+			gatTraitDefs = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.AllDefs.OfType<TraitDef>().ToList();
+			foreach (TraitDef traitDef in gatTraitDefs)
 			{
-				var pack = packages[i];
+				string tdFileName = traitDef.fileName;
+				string tdDefName = traitDef.defName;
 
-				if (fileInfoDict.ContainsKey(pack.fileName) == false)
+				if (fileInfoDict.ContainsKey(tdFileName) == false)
 				{
-					fileInfoDict.Add(pack.fileName, new GAT_FileInfo(true, true));
+					fileInfoDict.Add(tdFileName, new GAT_FileInfo(true, true)); //Newly found files should be enabled by default and obviously exist
 				}
 				else
 				{
-					fileInfoDict[pack.fileName].exists = true;
+					fileInfoDict[tdFileName].exists = true; //confirm the existance of files referenced by defs (they get set to false on load)
 				}
 
-				foreach (TraitDef item in pack)
+				if (fileInfoDict[tdFileName].defInfo.ContainsKey(tdDefName) == false) //Same as for files, but for each def
 				{
-					if (fileInfoDict[pack.fileName].defInfo.ContainsKey(item.defName) == false)
-					{
-						fileInfoDict[pack.fileName].defInfo.Add(item.defName, new GAT_FileInfo.GAT_DefInfo(fileInfoDict[pack.fileName].enabled, true));
-					}
-					else
-					{
-						fileInfoDict[pack.fileName].defInfo[item.defName].exists = true;
-					}
-
-					string desc = "";
-					foreach (var degree in item.degreeDatas)
-					{
-						desc += degree.label + ": " + degree.description + "\n\n";
-					}
-					fileInfoDict[pack.fileName].defInfo[item.defName].description = desc;
+					fileInfoDict[tdFileName].defInfo.Add(tdDefName, new GAT_FileInfo.GAT_DefInfo(fileInfoDict[tdFileName].enabled, true));
 				}
-				defCount += fileInfoDict[pack.fileName].defInfo.Count;
+				else
+				{
+					fileInfoDict[tdFileName].defInfo[tdDefName].exists = true;
+				}
+
+				//Rebuild the description (in case a new degree data was added since last load)
+				string desc = "";
+				foreach (var degree in traitDef.degreeDatas)
+				{
+					desc += degree.label + ": " + degree.description + "\n\n";
+				}
+				fileInfoDict[tdFileName].defInfo[tdDefName].description = desc;
 			}
+
+			recountValid();
 
 			if (defsChanged == true)
 			{
@@ -125,20 +126,31 @@ namespace Gewen_AdditionalTraits
 			}
 		}
 
-		private static int RecountDefs()
+		private static void recountValid()
 		{
-			int count = 0;
+			int newDefCount = 0;
+			int newFileCount = 0;
 
-			foreach (var pack in packages)
+			foreach (var file in fileInfoDict.Keys)
 			{
-				foreach (TraitDef item in pack)
+				if (fileInfoDict[file].exists == true)
 				{
-					count++;
+					newFileCount++;
+				}
+
+				foreach (var def in fileInfoDict[file].defInfo.Values)
+				{
+					if (def.exists == true)
+					{
+						newDefCount++;
+					}
 				}
 			}
 
-			return count;
+			defCount = newDefCount;
+			fileCount = newFileCount;
 		}
+
 
 		public static void HandleChanges()
 		{
@@ -198,14 +210,9 @@ namespace Gewen_AdditionalTraits
 		{
 			string msg = "Packages:\n";
 
-			foreach (var item in packages)
+			foreach (var item in gatTraitDefs)
 			{
-				msg += item.fileName + "\n";
-
-				foreach (var item2 in item.defs)
-				{
-					msg += "\t" + item2.defName + "\n";
-				}
+				msg += item.fileName + "\t" + item.defName + "\n";
 			}
 
 			msg += "Dict:\n";
@@ -238,6 +245,7 @@ namespace Gewen_AdditionalTraits
 		//GUI Window
 		public void DoSettingsWindowContents(Rect inRect)
 		{
+			recountValid();
 			if (defCount == 0)
 			{
 				Init();
@@ -268,33 +276,40 @@ namespace Gewen_AdditionalTraits
 			listRect.height -= warnMsgHeight;
 
 			scroller.width -= 20f; //20 is width of scroll bar
-			scroller.height = (defCount + fileInfoDict.Count) * (Text.LineHeight + (options.verticalSpacing)) + (fileInfoDict.Count * gapHeight);
+			scroller.height = (defCount + fileCount) * (Text.LineHeight + (options.verticalSpacing)) + (fileCount * gapHeight);
 			Widgets.BeginScrollView(listRect, ref scrollVector2, scroller);
 			options.Begin(scroller);
 
-			for (int i = 0; i < packages.Count; i++)
+			foreach (string fileName in fileInfoDict.Keys.OrderBy(k=>k))
 			{
-				var pack = packages[i];
-
-				bool fileStatus = fileInfoDict[pack.fileName].enabled;
-
-				options.CheckboxLabeled(pack.fileName, ref fileStatus, (fileStatus==true ? "Disable" : "Enable")+" all defs in file");
-				foreach (TraitDef def in pack.defs)
+				if (fileInfoDict[fileName].exists)
 				{
-					bool defStatus = fileStatus;
+					bool fileStatus = fileInfoDict[fileName].enabled;
 
-					if (fileStatus == fileInfoDict[pack.fileName].enabled)
+					options.CheckboxLabeled(fileName, ref fileStatus, (fileStatus == true ? "Disable" : "Enable") + " all defs in file");
+
+					foreach (string defName in fileInfoDict[fileName].defInfo.Keys)
 					{
-						defStatus = fileInfoDict[pack.fileName].defInfo[def.defName].enabled;
+						if (fileInfoDict[fileName].defInfo[defName].exists)
+						{
+							bool defStatus = fileStatus;
+
+							if (fileStatus == fileInfoDict[fileName].enabled)
+							{
+								defStatus = fileInfoDict[fileName].defInfo[defName].enabled;
+							}
+
+							options.CheckboxLabeled("\t" + defName, ref defStatus, fileInfoDict[fileName].defInfo[defName].description);
+							fileInfoDict[fileName].defInfo[defName].enabled = defStatus;
+						}
 					}
 
-					options.CheckboxLabeled("\t" + def.defName, ref defStatus, fileInfoDict[pack.fileName].defInfo[def.defName].description);
-					fileInfoDict[pack.fileName].defInfo[def.defName].enabled = defStatus;
-				}
-				fileInfoDict[pack.fileName].enabled = fileStatus;
+					fileInfoDict[fileName].enabled = fileStatus;
 
-				options.GapLine(gapHeight);
+					options.GapLine(gapHeight);
+				}
 			}
+			
 			options.End();
 			Widgets.EndScrollView();
 			options.End();

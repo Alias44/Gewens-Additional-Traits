@@ -14,7 +14,7 @@
 			</nullifyingTraits>
 		</value>
 	</Operation>
-	
+
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThoughtDef[defName="SharedBed"]</xpath>
 		<value>
@@ -23,14 +23,14 @@
 			</nullifyingTraits>
 		</value>
 	</Operation>
-	
+
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThoughtDef[defName="Naked"]/nullifyingTraits</xpath>
 		<value>
 			<li>GAT_Pervert</li>
 		</value>
 	</Operation>
-	
+
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThoughtDef[defName="ObservedLayingCorpse" or defName="ObservedLayingRottingCorpse"]/nullifyingTraits</xpath>
 		<value>

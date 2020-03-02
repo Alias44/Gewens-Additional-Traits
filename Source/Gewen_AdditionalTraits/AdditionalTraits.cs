@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections;
@@ -35,10 +35,10 @@ namespace Gewen_AdditionalTraits
 					{
 						GAT_TraitSettings.fileInfoDict[file.Key].defInfo[item.Key].exists = true;
 
-						if (file.Value.exists == false || td.defPackage.fileName.Equals(file.Key) == false) //def exists, but the file does not (def moved to new file / file has been renamed)
+						if (file.Value.exists == false || td.fileName.Equals(file.Key) == false) //def exists, but the file does not (def moved to new file / file has been renamed)
 						{
 							GAT_TraitSettings.defsChanged = true;
-							GAT_TraitSettings.fileInfoDict[file.Key].defInfo[item.Key].fileChanged = td.defPackage.fileName;
+							GAT_TraitSettings.fileInfoDict[file.Key].defInfo[item.Key].fileChanged = td.fileName;
 						}
 
 						if (item.Value.enabled == false) //def exists and needs to be removed
@@ -51,7 +51,7 @@ namespace Gewen_AdditionalTraits
 
 			if (GAT_TraitSettings.defsChanged == true)
 			{
-				GAT_TraitSettings.HandleChanges();
+				//GAT_TraitSettings.HandleChanges(); //!!!
 			}
 		}
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Collections.Generic;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -14,7 +14,7 @@ namespace Gewen_AdditionalTraits
 
 		static HarmonyPatches ()
 		{
-			HarmonyInstance harmony = HarmonyInstance.Create("Gewen_AdditionalTraits.main");
+			var harmony = new Harmony("Gewen_AdditionalTraits.main");
 			//harmony.Patch(AccessTools.Method(typeof(Corpse), "GiveObservedThought"), null, new HarmonyMethod(patchType, nameof(MorbidCorpse)));
 			harmony.Patch(AccessTools.Method(typeof(BackCompatibility), "BackCompatibleDefName"), null, new HarmonyMethod(patchType, nameof(BackCompatPatch)));
 

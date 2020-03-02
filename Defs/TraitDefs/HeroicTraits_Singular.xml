@@ -121,8 +121,9 @@
 		<degreeDatas>
 			<li>
 				<label>Artemis' Blessing</label>
-				<description>{PAWN_nameDef}'s natural instinct to protect and nurture the people led {PAWN_pronoun} to champion the hunt.</description>
+				<description>{PAWN_nameDef}'s natural instinct to protect and nurture the people led {PAWN_objective} to champion the hunt.</description>
 				<statOffsets>
+					<HuntingStealth>0.5</HuntingStealth>
 					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
 					<AimingDelayFactor>-1</AimingDelayFactor>
 					<ButcheryFleshSpeed>1</ButcheryFleshSpeed>
@@ -242,8 +243,9 @@
 					<ConstructSuccessChance>2</ConstructSuccessChance>
 					<!--<ConstructFailChance>-1</ConstructFailChance>-->
 					<ConstructionSpeed>1</ConstructionSpeed>
-					<SmithingSpeed>1</SmithingSpeed>
+					<!--SmithingSpeed>1</SmithingSpeed-->
 					<SmeltingSpeed>1</SmeltingSpeed>
+					<GeneralLaborSpeed>.5</GeneralLaborSpeed>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
@@ -277,6 +279,7 @@
 					<MedicalOperationSpeed>1</MedicalOperationSpeed>
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
 					<MedicalTendQuality>1</MedicalTendQuality>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>

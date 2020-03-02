@@ -1,6 +1,8 @@
 # Gewens-Additional-Traits 
 Gewen's-Additional-Traits updated to v1.0 Sourced from Swenzi's b18 update on the Steam Workshop
 
+RimWorld version 1.1 removed some of the statdefs that this mod uses, I rather liked the traits that were affected and would hate to completely scrap them, as such I have reimplemented the removed statdefs in my [De-generalize Work mod](https://github.com/Alias44/Degeneralize-Work) as other modders seemed to be experiencing the same thing. De-generalize Work is **not** required for this mod and Additional Traits can and will function entirely without it, there will just be a few traits that are modified or don't show up at all.
+
 ## Installation Instructions
 
 ### To install a non-workshop RimWorld mod from zip download:
@@ -21,6 +23,14 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v3.2.0
+* 1.1 update with 1.0 backwards compatibility
+* Harmony update, the mod will include its own copy (v2.0.0.8), however it it recommended that you subscribe and activate the official [Harmony mod by Brrainz](https://github.com/pardeike/HarmonyRimWorld) so that you always have the latest version
+* The following traits used statdefs that were removed by 1.1, as such they are now dependent on the [De-generalize Work mod](https://github.com/Alias44/Degeneralize-Work)
+  * Natural Tailor
+  * Eccentric Artist
+* Vulcan's Fire now grants a much weaker +50% bonus to GeneralLaborSpeed instead of +100% to SmithingSpeed, unless De-generalize Work is loaded, in which case the trait is unchanged
+
 v3.1.1
 * Changed defNames to have a "GAT_" prefix to avoid/fix collisions with other mods that add traits
 * Added harmony patch to handle the transition to the new defsNames
