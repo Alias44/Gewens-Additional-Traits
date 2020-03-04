@@ -201,7 +201,7 @@ namespace Gewen_AdditionalTraits
 			}
 
 			defsChanged = false;
-			//defCount = RecountDefs();
+			recountValid();
 			Init();
 			//toStringDebug();
 		}
@@ -223,6 +223,22 @@ namespace Gewen_AdditionalTraits
 				foreach (var item2 in item.Value.defInfo)
 				{
 					msg += "\t" + item2.Key + "\n";
+				}
+			}
+
+			Log.Message(msg);
+		}
+
+		public static void prepCSV()
+		{
+			string msg = "";
+			foreach (var fileName in fileInfoDict)
+			{
+				msg += fileName.Key + ",\n";
+
+				foreach (var def in fileName.Value.defInfo)
+				{
+					msg += def.Value.description.Replace("\n\n", ",\n").Replace(": ", ",\"") + "\"";
 				}
 			}
 
@@ -288,22 +304,24 @@ namespace Gewen_AdditionalTraits
 
 					options.CheckboxLabeled(fileName, ref fileStatus, (fileStatus == true ? "Disable" : "Enable") + " all defs in file");
 
+					bool allDefStstus = false;
 					foreach (string defName in fileInfoDict[fileName].defInfo.Keys)
 					{
 						if (fileInfoDict[fileName].defInfo[defName].exists)
 						{
-							bool defStatus = fileStatus;
+							bool defStatus = fileInfoDict[fileName].defInfo[defName].enabled;
 
-							if (fileStatus == fileInfoDict[fileName].enabled)
+							if (fileStatus != fileInfoDict[fileName].enabled) //If the file status has changed, set the defs to be the new file status
 							{
-								defStatus = fileInfoDict[fileName].defInfo[defName].enabled;
+								defStatus = fileStatus;
 							}
+							allDefStstus = allDefStstus || defStatus; //the file status should be the result of all of the defs or'd together
 
 							options.CheckboxLabeled("\t" + defName, ref defStatus, fileInfoDict[fileName].defInfo[defName].description);
 							fileInfoDict[fileName].defInfo[defName].enabled = defStatus;
 						}
 					}
-
+					fileStatus = allDefStstus;
 					fileInfoDict[fileName].enabled = fileStatus;
 
 					options.GapLine(gapHeight);

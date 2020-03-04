@@ -51,7 +51,7 @@ namespace Gewen_AdditionalTraits
 
 			if (GAT_TraitSettings.defsChanged == true)
 			{
-				//GAT_TraitSettings.HandleChanges(); //!!!
+				GAT_TraitSettings.HandleChanges();
 			}
 		}
 

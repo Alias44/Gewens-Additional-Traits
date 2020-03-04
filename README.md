@@ -23,6 +23,11 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v3.2.1
+* Reenabled handling changes to def structure
+* File enable/disable now behaves like a proper nested checkbox
+* Removed duplicate changelog from about.xml
+	
 v3.2.0
 * 1.1 update with 1.0 backwards compatibility
 * Harmony update, the mod will include its own copy (v2.0.0.8), however it it recommended that you subscribe and activate the official [Harmony mod by Brrainz](https://github.com/pardeike/HarmonyRimWorld) so that you always have the latest version
