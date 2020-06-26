@@ -23,6 +23,9 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v3.2.2
+* Patches that add nullifyingTraits to vanilla thoughts now check for the field before trying to add it (prevents '*X* defines the same field twice error)
+
 v3.2.1
 * Reenabled handling changes to def structure
 * File enable/disable now behaves like a proper nested checkbox
