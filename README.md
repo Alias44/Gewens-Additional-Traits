@@ -23,6 +23,11 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v3.2.3
+* 1.2 update
+* Social penalty for pervert trait does not apply if both pawns have the pervert trait
+* Harmony update (v2.0.2)
+
 v3.2.2
 * Patches that add nullifyingTraits to vanilla thoughts now check for the field before trying to add it (prevents '*X* defines the same field twice error)
 
