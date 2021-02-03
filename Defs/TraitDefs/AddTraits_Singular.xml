@@ -3,7 +3,7 @@
 	<!--=================== Thought Related ===================-->
 	<TraitDef>
 		<defName>GAT_Confident</defName>
-		<commonality>0.4</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Confident</label>
@@ -24,7 +24,7 @@
 	<!--=================== Weight Related ===================-->
 	<TraitDef>
 		<defName>GAT_Overweight</defName>
-		<commonality>0.25</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Overweight</label>
@@ -43,7 +43,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Athletic</defName>
-		<commonality>0.25</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Athletic</label>
@@ -78,7 +78,7 @@
 	<!--=================== Custom ===================-->
 	<TraitDef>
 		<defName>GAT_Dexterous</defName>
-		<commonality>0.4</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Dexterous</label>
@@ -103,7 +103,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Perceptive</defName>
-		<commonality>0.3</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Perceptive</label>
@@ -127,7 +127,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Clean</defName>
-		<commonality>0.3</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Clean</label>
@@ -153,7 +153,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Nearsighted</defName>
-		<commonality>0.3</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Near-sighted</label>
@@ -168,7 +168,7 @@
 	
 	<TraitDef>
 		<defName>GAT_QuickLearner</defName>
-		<commonality>0.3</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Quick Learner</label>
@@ -182,7 +182,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Glutton</defName>
-		<commonality>0.3</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Glutton</label>
@@ -197,7 +197,7 @@
 	<!-- Redundant with super-immune
 	<TraitDef>
 		<defName>Healthy</defName>
-		<commonality>0.3</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Healthy</label>
@@ -278,7 +278,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Morbid</defName>
-		<commonality>0.8</commonality>
+		<commonality>0.5</commonality>
 		<degreeDatas>
 			<li>
 				<label>Morbid</label>
@@ -290,7 +290,7 @@
 	<!--=================== Professions ===================-->
 	<TraitDef>
 		<defName>GAT_CarefulSurgeon</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Careful Surgeon</label>
@@ -300,7 +300,7 @@
 					<MedicalOperationSpeed>0.2</MedicalOperationSpeed>
 					<MedicalTendSpeed>0.2</MedicalTendSpeed>
 					<MedicalSurgerySuccessChance>0.6</MedicalSurgerySuccessChance>
-					<MedicalTendQuality>0.3</MedicalTendQuality>
+					<MedicalTendQuality>0.5</MedicalTendQuality>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -317,7 +317,7 @@
 	
 	<TraitDef>
 		<defName>GAT_ProfessionalButcher</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Natural Butcher</label>
@@ -342,7 +342,7 @@
 	
 	<TraitDef>
 		<defName>GAT_LovedByAnimals</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Loved by Animals</label>
@@ -367,7 +367,7 @@
 		
 	<TraitDef>
 		<defName>GAT_GeniusResearcher</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Genius Inventor</label>
@@ -394,7 +394,7 @@
 	
 	<TraitDef>
 		<defName>GAT_GreenestThumb</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Green Thumb</label>
@@ -420,7 +420,7 @@
 	
 	<TraitDef>
 		<defName>GAT_EfficientBuilder</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Efficient Builder</label>
@@ -444,7 +444,7 @@
 	
 	<TraitDef>
 		<defName>GAT_FastMiner</defName>
-		<commonality>0.1</commonality>
+		<commonality>0.3</commonality>
 		<degreeDatas>
 			<li>
 				<label>Fast Miner</label>

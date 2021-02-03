@@ -3,7 +3,7 @@
 	<!-- Heroic Traits -->
 	<TraitDef>
 		<defName>GAT_Hercules</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.10</commonality>
 		<degreeDatas>
 			<li>
 				<label>Herculean</label>
@@ -29,7 +29,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Achilles</defName>
-		<commonality>0.05</commonality>
+		<commonality>0.10</commonality>
 		<degreeDatas>
 			<li>
 				<label>Achillean</label>
@@ -59,7 +59,7 @@
 
 	<TraitDef>
 		<defName>GAT_Odysseus</defName>
-		<commonality>0.05</commonality>
+		<commonality>0.10</commonality>
 		<degreeDatas>
 			<li>
 				<label>Odyssean</label>
@@ -89,7 +89,7 @@
 	<!-- God Traits -->
 	<TraitDef>
 		<defName>GAT_Ares</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Ares' Wrath</label>
@@ -117,7 +117,7 @@
 	<TraitDef>
 		<defName>GAT_Artemis</defName>
 		<commonality>0</commonality>
-		<commonalityFemale>0.01</commonalityFemale>
+		<commonalityFemale>0.05</commonalityFemale>
 		<degreeDatas>
 			<li>
 				<label>Artemis' Blessing</label>
@@ -147,7 +147,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Aphrodite</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Aphrodite's Grace</label>
@@ -174,7 +174,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Mercury</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Mercury's Blessing</label>
@@ -199,7 +199,7 @@
 
 	<TraitDef>
 		<defName>GAT_Sylvanus</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Sylvanus' Blessing</label>
@@ -234,7 +234,7 @@
 
 	<TraitDef>
 		<defName>GAT_Vulcan</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Vulcan's Fire</label>
@@ -269,7 +269,7 @@
 	
 	<TraitDef>
 		<defName>GAT_Imhotep</defName>
-		<commonality>0.01</commonality>
+		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Imhotep's Wisdom</label>
