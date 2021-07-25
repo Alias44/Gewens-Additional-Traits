@@ -280,7 +280,6 @@
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
 					<MedicalTendQuality>1</MedicalTendQuality>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <loadFolders>
   <v1.1>
-    <li>/</li>
+    <li>Common</li>
+	 <li>1.1</li>
     <li IfModActive="Alias.DegeneralizeWork">DegeneralizeWork_Specific</li>
   </v1.1>
+  
+  <v1.3>
+    <li>Common</li>
+	 <li>1.3</li>
+    <li IfModActive="Alias.DegeneralizeWork">DegeneralizeWork_Specific</li>
+  </v1.3>
 </loadFolders>
