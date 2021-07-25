@@ -12,13 +12,19 @@ namespace Gewen_AdditionalTraits
 	{
 		static readonly Type patchType = typeof(HarmonyPatches);
 
-		static HarmonyPatches ()
+		static HarmonyPatches()
 		{
 			var harmony = new Harmony("Gewen_AdditionalTraits.main");
 			//harmony.Patch(AccessTools.Method(typeof(Corpse), "GiveObservedThought"), null, new HarmonyMethod(patchType, nameof(MorbidCorpse)));
-			harmony.Patch(AccessTools.Method(typeof(BackCompatibility), "BackCompatibleDefName"), null, new HarmonyMethod(patchType, nameof(BackCompatPatch)));
 
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+			// Add a custom back compatibility to the conversion chain
+			List<BackCompatibilityConverter> compatibilityConverters =
+				AccessTools.StaticFieldRefAccess<List<BackCompatibilityConverter>>(typeof(BackCompatibility),
+					"conversionChain");
+
+			compatibilityConverters.Add(new BackCompatibilityConverter_GAT());
 		}
 
 		/*[HarmonyPostfix]
@@ -34,23 +40,5 @@ namespace Gewen_AdditionalTraits
 				__result = (Thought_Memory)memoryObservation;
 			}
 		}*/
-
-		[HarmonyPostfix]
-		public static void BackCompatPatch(ref System.Type defType, ref string defName, ref string __result)
-		{
-			if (GenDefDatabase.GetDefSilentFail(defType, __result, false) == null)
-			{
-				if (defType == typeof(TraitDef) || defType == typeof(ThoughtDef))
-				{
-					var def = GenDefDatabase.GetDefSilentFail(defType, "GAT_" + defName, false);
-
-					if (def != null)
-					{
-						__result = def.defName;
-					}
-					return;
-				}
-			}
-		}
 	}
 }
