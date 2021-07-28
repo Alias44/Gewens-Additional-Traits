@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>Additional Traits (Heroes + Gods Optional)</name>
-	<author>Gewen, Swenzi, and Alias</author>
+	<author>Alias</author>
+	<authors>
+		<li>Gewen</li>
+		<li>Swenzi</li>
+	</authors>
 	<url>https://ludeon.com/forums/index.php?topic=29661.msg300431#msg300431</url>
 	<supportedVersions>
 		<li>1.0</li>

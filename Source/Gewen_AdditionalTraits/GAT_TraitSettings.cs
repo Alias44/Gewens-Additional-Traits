@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
 using RimWorld;
-
-using HarmonyLib;
 
 
 namespace Gewen_AdditionalTraits
@@ -337,18 +334,18 @@ namespace Gewen_AdditionalTraits
 
 	public class GewensAddTraits_Mod : Mod
 	{
-		public GAT_TraitSettings settings = new GAT_TraitSettings();
+		public static GAT_TraitSettings settings;
 
 		public GewensAddTraits_Mod(ModContentPack content) : base(content)
 		{
-			GetSettings<GAT_TraitSettings>();
+			settings = GetSettings<GAT_TraitSettings>();
 		}
 
 		public override string SettingsCategory() => "Additional Traits";
 
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
-			GetSettings<GAT_TraitSettings>().DoSettingsWindowContents(inRect);
+			settings.DoSettingsWindowContents(inRect);
 		}
 	}
 }

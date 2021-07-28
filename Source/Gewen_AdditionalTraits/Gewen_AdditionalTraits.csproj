@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="AdditionalTraits.cs" />
     <Compile Include="BackCompatibilityConverter_GAT.cs" />
+    <Compile Include="GATDefOf.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThoughtWorker_Perv.cs" />
