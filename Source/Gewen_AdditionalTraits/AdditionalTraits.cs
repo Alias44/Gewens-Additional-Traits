@@ -1,25 +1,22 @@
 ﻿using HarmonyLib;
 using RimWorld;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Reflection.Emit;
 using Verse;
-using Verse.AI;
 
 namespace Gewen_AdditionalTraits
 {
 	[StaticConstructorOnStartup]
 	static class AdditionalTraits
 	{
-		//public static List<DefPackage> packages = Verse.LoadedModManager.GetMod<GewensAddTraits_Mod>().Content.GetDefPackagesInFolder("TraitDefs\\").ToList();
-
 		static AdditionalTraits()
 		{
 			GAT_TraitSettings.Init();
+			RemoveTraits();
+		}
 
+		public static void RemoveTraits()
+		{
 			foreach (KeyValuePair<string, GAT_FileInfo> file in GAT_TraitSettings.fileInfoDict)
 			{
 				foreach (KeyValuePair<string, GAT_FileInfo.GAT_DefInfo> item in file.Value.defInfo)
@@ -43,24 +40,22 @@ namespace Gewen_AdditionalTraits
 
 						if (item.Value.enabled == false) //def exists and needs to be removed
 						{
-							RemoveTrait(item.Key);
+							RemoveTraitDef(item.Key);
 						}
 					}
 				}
 			}
 
-			if (GAT_TraitSettings.defsChanged == true)
+			if (GAT_TraitSettings.defsChanged)
 			{
 				GAT_TraitSettings.HandleChanges();
 			}
 		}
 
-		public static bool RemoveTrait(string traitDefName)
+		static MethodInfo removeMethod = AccessTools.Method(typeof(DefDatabase<TraitDef>), "Remove");
+		public static bool RemoveTraitDef(string traitDefName)
 		{
-			Traverse.Create(typeof(DefDatabase<TraitDef>)).Method("Remove", new Type[]
-			{
-				typeof (TraitDef)
-			}).GetValue(TraitDef.Named(traitDefName));
+			removeMethod.Invoke(null, new object[] {TraitDef.Named(traitDefName)});
 
 			return true;
 		}

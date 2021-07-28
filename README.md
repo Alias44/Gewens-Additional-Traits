@@ -23,6 +23,14 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v3.2.4
+* 1.3 update
+* Harmony update (v2.1.0)
+* Restructured to use default multi-versioning system
+* Configured project files for simultaneous 1.2 and 1.3 builds
+* Removed packaged harmony (**Harmony is now a hard dependency**)
+* Fixed GAT_Pervert on character creation (I think)
+
 v3.2.3
 * 1.2 update
 * Social penalty for pervert trait does not apply if both pawns have the pervert trait
