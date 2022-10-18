@@ -266,32 +266,4 @@
 			<li>ManualSkilled</li>
 		</requiredWorkTags>
 	</TraitDef>
-	
-	<TraitDef>
-		<defName>GAT_Imhotep</defName>
-		<commonality>0.05</commonality>
-		<degreeDatas>
-			<li>
-				<label>Imhotep's Wisdom</label>
-				<description>{PAWN_nameDef} sends to sleep those who suffer, the new day bringing good health to them.</description>
-				<statOffsets>
-					<MedicalTendSpeed>1</MedicalTendSpeed>
-					<MedicalOperationSpeed>1</MedicalOperationSpeed>
-					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
-					<MedicalTendQuality>1</MedicalTendQuality>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Medicine</key>
-						<value>8</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-		<requiredWorkTags>
-			<li>Caring</li>
-		</requiredWorkTags>
-	</TraitDef>
 </Defs>
