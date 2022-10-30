@@ -297,8 +297,8 @@
 				<!--description>{PAWN_nameDef} is a pretty good surgeon, but they take a bit more time to complete an operation.</description-->
 				<description>{PAWN_nameDef} takes medicine very seriously. {PAWN_pronoun} wants to do no harm and isn't afraid to take longer to do the job right.</description>
 				<statOffsets>
-					<MedicalOperationSpeed>0.2</MedicalOperationSpeed>
-					<MedicalTendSpeed>0.2</MedicalTendSpeed>
+					<MedicalOperationSpeed>-0.2</MedicalOperationSpeed>
+					<MedicalTendSpeed>-0.2</MedicalTendSpeed>
 					<MedicalSurgerySuccessChance>0.6</MedicalSurgerySuccessChance>
 					<MedicalTendQuality>0.5</MedicalTendQuality>
 				</statOffsets>
@@ -454,7 +454,7 @@
 				<description>{PAWN_nameDef} has a passion for gardening. {PAWN_pronoun} knows exactly what a plant needs to grow happily.</description>
 				<statOffsets>
 					<PlantWorkSpeed>0.5</PlantWorkSpeed>
-					<PlantHarvestYield>1.5</PlantHarvestYield>
+					<PlantHarvestYield>0.5</PlantHarvestYield>
 					<!--<HarvestFailChance>-0.5</HarvestFailChance>-->
 				</statOffsets>
 				<skillGains>
