@@ -243,9 +243,9 @@
 					<ConstructSuccessChance>2</ConstructSuccessChance>
 					<!--<ConstructFailChance>-1</ConstructFailChance>-->
 					<ConstructionSpeed>1</ConstructionSpeed>
-					<!--SmithingSpeed>1</SmithingSpeed-->
+					<SmithingSpeed MayRequire="Alias.DegeneralizeWork">1</SmithingSpeed>
 					<SmeltingSpeed>1</SmeltingSpeed>
-					<GeneralLaborSpeed>.5</GeneralLaborSpeed>
+					<GeneralLaborSpeed>.5</GeneralLaborSpeed> <!-- removed  via patch if DegeneralizeWork is loaded-->
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
