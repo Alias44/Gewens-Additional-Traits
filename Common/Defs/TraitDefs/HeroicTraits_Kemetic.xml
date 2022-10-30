@@ -3,9 +3,8 @@
 	<!-- Heroic Traits -->
 	
 	<!-- God Traits -->
-	<TraitDef>
+	<TraitDef ParentName="GAT_DivineBase">
 		<defName>GAT_Imhotep</defName>
-		<commonality>0.05</commonality>
 		<degreeDatas>
 			<li>
 				<label>Imhotep's Wisdom</label>
