@@ -166,36 +166,12 @@
 			<li>Social</li>
 		</requiredWorkTags>
 	</TraitDef>
-	
-	<TraitDef ParentName="GAT_DivineBase">
-		<defName>GAT_Mercury</defName>
-		<degreeDatas>
-			<li>
-				<label>Mercury's Blessing</label>
-				<description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description>
-				<statOffsets>
-					<EatingSpeed>1</EatingSpeed>
-					<WorkSpeedGlobal>1</WorkSpeedGlobal>
-					<GlobalLearningFactor>1</GlobalLearningFactor>
-					<MoveSpeed>1</MoveSpeed>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-				</statOffsets>
-				<skillGains>
-					<li>
-						<key>Intellectual</key>
-						<value>8</value>
-					</li>
-				</skillGains>
-			</li>
-		</degreeDatas>
-	</TraitDef>
 
 	<TraitDef ParentName="GAT_DivineBase">
-		<defName>GAT_Sylvanus</defName>
+		<defName>GAT_Pan</defName>
 		<degreeDatas>
 			<li>
-				<label>Sylvanus' Blessing</label>
+				<label>Pan's Blessing</label>
 				<description>Companion to all woodland creatures, both mundane and fantastic, {PAWN_nameDef} protects and nurtures those that respect {PAWN_possessive} domain.</description>
 				<statOffsets>
 					<TameAnimalChance>1</TameAnimalChance>
@@ -209,12 +185,8 @@
 				</statOffsets>
 				<skillGains>
 					<li>
-						<key>Plants</key>
-						<value>4</value>
-					</li>
-					<li>
 						<key>Animals</key>
-						<value>4</value>
+						<value>8</value>
 					</li>
 				</skillGains>
 			</li>
@@ -226,10 +198,10 @@
 	</TraitDef>
 
 	<TraitDef ParentName="GAT_DivineBase">
-		<defName>GAT_Vulcan</defName>
+		<defName>GAT_Hephaestus</defName>
 		<degreeDatas>
 			<li>
-				<label>Vulcan's Fire</label>
+				<label>Hephaestus' Forge</label>
 				<description>{PAWN_nameDef} crafts with fire and forge as an artist would with paint and brush.</description>
 				<statOffsets>
 					<ConstructSuccessChance>2</ConstructSuccessChance>
@@ -257,5 +229,29 @@
 			<li>Crafting</li>
 			<li>ManualSkilled</li>
 		</requiredWorkTags>
+	</TraitDef>
+		
+	<TraitDef ParentName="GAT_DivineBase">
+		<defName>GAT_Hermes</defName>
+		<degreeDatas>
+			<li>
+				<label>Hermes' Blessing</label>
+				<description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description>
+				<statOffsets>
+					<EatingSpeed>1</EatingSpeed>
+					<WorkSpeedGlobal>1</WorkSpeedGlobal>
+					<GlobalLearningFactor>1</GlobalLearningFactor>
+					<MoveSpeed>1</MoveSpeed>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Intellectual</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
 	</TraitDef>
 </Defs>

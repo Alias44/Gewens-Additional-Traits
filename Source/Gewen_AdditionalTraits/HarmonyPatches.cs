@@ -24,6 +24,7 @@ namespace Gewen_AdditionalTraits
 					"conversionChain");
 
 			compatibilityConverters.Add(new BackCompatibilityConverter_GAT());
+			compatibilityConverters.Add(new BackCompatibilityConverter_Rename());
 		}
 
 		/*[HarmonyPostfix]
