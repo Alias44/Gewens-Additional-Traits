@@ -5,6 +5,7 @@
 	<!-- God Traits -->
 	<TraitDef ParentName="GAT_DivineBase">
 		<defName>GAT_Imhotep</defName>
+		<commonality>0</commonality> <!--Zeroed as trait may return in future update-->
 		<degreeDatas>
 			<li>
 				<label>Imhotep's Wisdom</label>
