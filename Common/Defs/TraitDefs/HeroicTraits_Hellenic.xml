@@ -25,7 +25,7 @@
 			<li>Violent</li>
 		</requiredWorkTags>
 	</TraitDef>
-	
+
 	<TraitDef ParentName="GAT_HeroicBase">
 		<defName>GAT_Achilles</defName>
 		<degreeDatas>
@@ -82,7 +82,7 @@
 			<li>Violent</li>
 		</requiredWorkTags>
 	</TraitDef>
-	
+
 	<!-- God Traits -->
 	<TraitDef ParentName="GAT_DivineBase">
 		<defName>GAT_Ares</defName>
@@ -140,7 +140,67 @@
 			<li>Violent</li>
 		</requiredWorkTags>
 	</TraitDef>
-	
+
+	<TraitDef ParentName="GAT_DivineBase">
+		<defName>GAT_Apollo</defName>
+		<degreeDatas>
+			<li>
+				<label>Apollo's Harmony</label>
+				<description>Patron of the arts and student of the bow, {PAWN_nameDef} will bring beauty to {PAWN_possessive} world, one way or another.</description>
+				<statOffsets>
+					<SculptingSpeed MayRequire="Alias.DegeneralizeWork">1</SculptingSpeed>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+					<AimingDelayFactor>-1</AimingDelayFactor>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Shooting</key>
+						<value>4</value>
+					</li>
+					<li>
+						<key>Artistic</key>
+						<value>4</value>
+					</li>
+				</skillGains>
+				<allowedMeditationFocusTypes>
+					<li>Artistic</li>
+				</allowedMeditationFocusTypes>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Violent</li>
+			<li>Artistic</li>
+		</requiredWorkTags>
+	</TraitDef>
+
+	<TraitDef ParentName="GAT_DivineBase">
+		<defName>GAT_Hades</defName>
+		<degreeDatas>
+			<li>
+				<label>Hades' Wealth</label>
+				<description>{PAWN_nameDef} knows where the riches are buried, {PAWN_pronoun} also knows that the dead can't take it with them.</description>
+				<statOffsets>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Mining</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+				<allowedMeditationFocusTypes>
+					<li>Morbid</li>
+				</allowedMeditationFocusTypes>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Mining</li>
+		</requiredWorkTags>
+	</TraitDef>
+
 	<TraitDef ParentName="GAT_DivineBase">
 		<defName>GAT_Aphrodite</defName>
 		<degreeDatas>
@@ -168,20 +228,41 @@
 	</TraitDef>
 
 	<TraitDef ParentName="GAT_DivineBase">
+		<defName>GAT_Demeter</defName>
+		<degreeDatas>
+			<li>
+				<label>Demeter's Bounty</label>
+				<description>{PAWN_nameDef} has a special connection to the roots. Plants grow, flower, and die at {PAWN_possessive} order.</description>
+				<statOffsets>
+					<PlantWorkSpeed>1</PlantWorkSpeed>
+					<PlantHarvestYield>2</PlantHarvestYield>
+					<!--<HarvestFailChance>-1</HarvestFailChance>-->
+					<ForagedNutritionPerDay>1</ForagedNutritionPerDay>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Plants</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+				<allowedMeditationFocusTypes>
+					<li>Natural</li>
+				</allowedMeditationFocusTypes>
+			</li>
+		</degreeDatas>
+	</TraitDef>
+
+	<TraitDef ParentName="GAT_DivineBase">
 		<defName>GAT_Pan</defName>
 		<degreeDatas>
 			<li>
 				<label>Pan's Blessing</label>
-				<description>Companion to all woodland creatures, both mundane and fantastic, {PAWN_nameDef} protects and nurtures those that respect {PAWN_possessive} domain.</description>
+				<description>Companion to creatures both mundane and fantastic, {PAWN_nameDef} protects and nurtures {PAWN_possessive} flock.</description>
 				<statOffsets>
 					<TameAnimalChance>1</TameAnimalChance>
 					<TrainAnimalChance>1</TrainAnimalChance>
-					<PlantWorkSpeed>1</PlantWorkSpeed>
-					<PlantHarvestYield>2</PlantHarvestYield>
-					<!--<HarvestFailChance>-1</HarvestFailChance>-->
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-					<ForagedNutritionPerDay>1</ForagedNutritionPerDay>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -209,7 +290,8 @@
 					<ConstructionSpeed>1</ConstructionSpeed>
 					<SmithingSpeed MayRequire="Alias.DegeneralizeWork">1</SmithingSpeed>
 					<SmeltingSpeed>1</SmeltingSpeed>
-					<GeneralLaborSpeed>.5</GeneralLaborSpeed> <!-- removed  via patch if DegeneralizeWork is loaded-->
+					<GeneralLaborSpeed>.5</GeneralLaborSpeed>
+					<!-- removed  via patch if DegeneralizeWork is loaded-->
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
@@ -230,17 +312,70 @@
 			<li>ManualSkilled</li>
 		</requiredWorkTags>
 	</TraitDef>
-		
+	
+	<TraitDef ParentName="GAT_DivineBase">
+		<defName>GAT_Asclepius</defName>
+		<degreeDatas>
+			<li>
+				<label>Asclepius' Healing</label>
+				<description>{PAWN_nameDef}'s healing can cure the sick and keep death itself at bay.</description>
+				<statOffsets>
+					<MedicalTendSpeed>1</MedicalTendSpeed>
+					<MedicalOperationSpeed>1</MedicalOperationSpeed>
+					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
+					<MedicalTendQuality>1</MedicalTendQuality>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Medicine</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>Caring</li>
+		</requiredWorkTags>
+	</TraitDef>
+
+	<TraitDef ParentName="GAT_DivineBase">
+		<defName>GAT_Athena</defName>
+		<degreeDatas>
+			<li>
+				<label>Athena's Wisdom</label>
+				<description>{PAWN_nameDef} commands the wisdom of the ages. {PAWN_pronoun} is a master tactician and inventor extraordinaire with few intellectual rivals.</description>
+				<statOffsets>
+					<GlobalLearningFactor>1</GlobalLearningFactor>
+					<ResearchSpeed>1</ResearchSpeed>
+					<ArmorRating_Blunt>1</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+				</statOffsets>
+				<skillGains>
+					<li>
+						<key>Intellectual</key>
+						<value>8</value>
+					</li>
+				</skillGains>
+			</li>
+		</degreeDatas>
+		<requiredWorkTags>
+			<li>ManualSkilled</li>
+			<li>ManualSkilled</li>
+		</requiredWorkTags>
+	</TraitDef>
+
 	<TraitDef ParentName="GAT_DivineBase">
 		<defName>GAT_Hermes</defName>
 		<degreeDatas>
 			<li>
-				<label>Hermes' Blessing</label>
-				<description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description>
+				<label>Hermes' Haste</label>
+				<!--description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description-->
+				<description>{PAWN_nameDef} is quick to close a deal and even quicker to close a distance</description>
 				<statOffsets>
 					<EatingSpeed>1</EatingSpeed>
-					<WorkSpeedGlobal>1</WorkSpeedGlobal>
-					<GlobalLearningFactor>1</GlobalLearningFactor>
+					<WorkSpeedGlobal>0.5</WorkSpeedGlobal>
 					<MoveSpeed>1</MoveSpeed>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>

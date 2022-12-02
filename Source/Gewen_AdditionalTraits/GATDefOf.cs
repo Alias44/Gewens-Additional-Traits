@@ -6,5 +6,7 @@ namespace Gewen_AdditionalTraits
 	public static class GATDefOf
 	{
 		public static TraitDef GAT_Pervert;
+
+		public static TraitDef GAT_Apollo;
 	}
 }
