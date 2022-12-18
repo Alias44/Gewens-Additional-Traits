@@ -1,0 +1,8 @@
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraitDef[defName="GAT_AvidArtist"]/degreeDatas/li/statOffsets/ToxicResistance</xpath>
+		<value>
+			<ToxicSensitivity>0.1</ToxicSensitivity>
+		</value>
+	</Operation>
+</Patch>
