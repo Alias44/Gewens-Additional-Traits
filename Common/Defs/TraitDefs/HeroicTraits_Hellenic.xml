@@ -380,7 +380,7 @@
 			<li>
 				<label>Hermes' Haste</label>
 				<!--description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description-->
-				<description>{PAWN_nameDef} is quick to close a deal and even quicker to close a distance</description>
+				<description>{PAWN_nameDef} only speed is fast. {PAWN_pronoun} is quick to close a deal and even quicker to close a distance.</description>
 				<statOffsets>
 					<WorkSpeedGlobal>0.5</WorkSpeedGlobal>
 					<MoveSpeed>1</MoveSpeed>
