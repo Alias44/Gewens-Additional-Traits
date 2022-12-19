@@ -91,7 +91,6 @@
 				<label>Ares' Wrath</label>
 				<description>Feared by {PAWN_objective} enemies and worshiped by warriors, {PAWN_nameDef} is a bloodthirsty embodiment of war.</description>
 				<statOffsets>
-					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
 					<MoveSpeed>.5</MoveSpeed>
 					<MeleeHitChance>1</MeleeHitChance>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
@@ -120,14 +119,16 @@
 				<description>{PAWN_nameDef}'s natural instinct to protect and nurture the people led {PAWN_objective} to champion the hunt.</description>
 				<statOffsets>
 					<HuntingStealth>0.5</HuntingStealth>
-					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
 					<AimingDelayFactor>-1</AimingDelayFactor>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
 					<ButcheryFleshSpeed>1</ButcheryFleshSpeed>
 					<CookSpeed>1</CookSpeed>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-					<ForagedNutritionPerDay>1</ForagedNutritionPerDay>
 				</statOffsets>
+				<statFactors>
+					<ForagedNutritionPerDay>1.25</ForagedNutritionPerDay>
+				</statFactors>
 				<skillGains>
 					<li>
 						<key>Shooting</key>
@@ -149,10 +150,10 @@
 				<description>Patron of the arts and student of the bow, {PAWN_nameDef} will bring beauty to {PAWN_possessive} world, one way or another.</description>
 				<statOffsets>
 					<SculptingSpeed MayRequire="Alias.DegeneralizeWork">1</SculptingSpeed>
-					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
 					<AimingDelayFactor>-1</AimingDelayFactor>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<ShootingAccuracyPawn>1</ShootingAccuracyPawn>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -184,6 +185,9 @@
 				<statOffsets>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<MiningSpeed>1</MiningSpeed>
+					<DeepDrillingSpeed>1</DeepDrillingSpeed>
+					<MiningYield>1</MiningYield>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -208,11 +212,14 @@
 				<label>Aphrodite's Grace</label>
 				<description>So wondrous is {PAWN_nameDef} to behold that one look can inspire tears, desire, jealousy, and love.</description>
 				<statOffsets>
-					<NegotiationAbility>1</NegotiationAbility>
+					<PawnBeauty>2</PawnBeauty>
 					<SocialImpact>1</SocialImpact>
-					<TradePriceImprovement>1</TradePriceImprovement>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<NegotiationAbility>1</NegotiationAbility>
+					<!--TradePriceImprovement>1</TradePriceImprovement-->
+					<ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1</ConversionPower>
+					<Fertility MayRequire="Ludeon.Rimworld.Biotech">1</Fertility>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -232,13 +239,16 @@
 		<degreeDatas>
 			<li>
 				<label>Demeter's Bounty</label>
-				<description>{PAWN_nameDef} has a special connection to the roots. Plants grow, flower, and die at {PAWN_possessive} order.</description>
+				<description>{PAWN_nameDef} has a special connection with plants, they grow, flower, and die at {PAWN_possessive} order.</description>
 				<statOffsets>
 					<PlantWorkSpeed>1</PlantWorkSpeed>
 					<PlantHarvestYield>2</PlantHarvestYield>
 					<!--<HarvestFailChance>-1</HarvestFailChance>-->
-					<ForagedNutritionPerDay>1</ForagedNutritionPerDay>
+					<PruningSpeed MayRequire="Ludeon.RimWorld.Ideology">1</PruningSpeed>
 				</statOffsets>
+				<statFactors>
+					<ForagedNutritionPerDay>2</ForagedNutritionPerDay>
+				</statFactors>
 				<skillGains>
 					<li>
 						<key>Plants</key>
@@ -259,10 +269,13 @@
 				<label>Pan's Blessing</label>
 				<description>Companion to creatures both mundane and fantastic, {PAWN_nameDef} protects and nurtures {PAWN_possessive} flock.</description>
 				<statOffsets>
+					<AnimalGatherSpeed>1</AnimalGatherSpeed>
+					<AnimalGatherYield>1</AnimalGatherYield>
 					<TameAnimalChance>1</TameAnimalChance>
 					<TrainAnimalChance>1</TrainAnimalChance>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<BondAnimalChanceFactor>1</BondAnimalChanceFactor>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -285,15 +298,14 @@
 				<label>Hephaestus' Forge</label>
 				<description>{PAWN_nameDef} crafts with fire and forge as an artist would with paint and brush.</description>
 				<statOffsets>
-					<ConstructSuccessChance>2</ConstructSuccessChance>
-					<!--<ConstructFailChance>-1</ConstructFailChance>-->
-					<ConstructionSpeed>1</ConstructionSpeed>
+					<!-- removed  via patch if DegeneralizeWork is loaded-->
+					<GeneralLaborSpeed>0.5</GeneralLaborSpeed>
 					<SmithingSpeed MayRequire="Alias.DegeneralizeWork">1</SmithingSpeed>
 					<SmeltingSpeed>1</SmeltingSpeed>
-					<GeneralLaborSpeed>.5</GeneralLaborSpeed>
-					<!-- removed  via patch if DegeneralizeWork is loaded-->
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<ConstructionSpeed>1</ConstructionSpeed>
+					<ConstructSuccessChance>1</ConstructSuccessChance>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -321,9 +333,9 @@
 				<description>{PAWN_nameDef}'s healing can cure the sick and keep death itself at bay.</description>
 				<statOffsets>
 					<MedicalTendSpeed>1</MedicalTendSpeed>
+					<MedicalTendQuality>1</MedicalTendQuality>
 					<MedicalOperationSpeed>1</MedicalOperationSpeed>
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
-					<MedicalTendQuality>1</MedicalTendQuality>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
@@ -351,6 +363,7 @@
 					<ResearchSpeed>1</ResearchSpeed>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<MortarMissRadiusFactor>-0.5</MortarMissRadiusFactor>
 				</statOffsets>
 				<skillGains>
 					<li>
@@ -374,15 +387,16 @@
 				<!--description>It is said that {PAWN_nameDef} can leap the space between lightning and thunder, outfox the fox king, and reach tomorrow before the sun.</description-->
 				<description>{PAWN_nameDef} is quick to close a deal and even quicker to close a distance</description>
 				<statOffsets>
-					<EatingSpeed>1</EatingSpeed>
 					<WorkSpeedGlobal>0.5</WorkSpeedGlobal>
 					<MoveSpeed>1</MoveSpeed>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+					<EatingSpeed>1</EatingSpeed>
+					<TradePriceImprovement>1</TradePriceImprovement>
 				</statOffsets>
 				<skillGains>
 					<li>
-						<key>Intellectual</key>
+						<key>Social</key>
 						<value>8</value>
 					</li>
 				</skillGains>

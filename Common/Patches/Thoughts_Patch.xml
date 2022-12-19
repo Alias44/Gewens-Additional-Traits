@@ -5,6 +5,29 @@
 			<li>ColdHearted</li>
 		</value>
 	</Operation-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="EnvironmentDark" or defName="ObservedLayingCorpse"]/nullifyingTraits</xpath>
+		<value>
+			<li>GAT_Hades</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="UndergrounderUnderground"]/requiredTraits</xpath>
+		<value>
+			<li>GAT_Hades</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThoughtDef[defName="SleptOutside" or defName="SleptOnGround"]</xpath>
+		<value>
+			<nullifyingTraits>
+				<li>GAT_Pan</li>
+			</nullifyingTraits>
+		</value>
+	</Operation>
+	
 	<Operation Class="PatchOperationConditional">
 		<xpath>Defs/ThoughtDef[defName="SleepDisturbed"]/nullifyingTraits</xpath>
 		<nomatch Class="PatchOperationAdd">

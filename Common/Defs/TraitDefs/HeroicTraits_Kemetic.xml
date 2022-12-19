@@ -12,9 +12,9 @@
 				<description>{PAWN_nameDef} sends to sleep those who suffer, the new day bringing good health to them.</description>
 				<statOffsets>
 					<MedicalTendSpeed>1</MedicalTendSpeed>
+					<MedicalTendQuality>1</MedicalTendQuality>
 					<MedicalOperationSpeed>1</MedicalOperationSpeed>
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
-					<MedicalTendQuality>1</MedicalTendQuality>
 					<ArmorRating_Blunt>1</ArmorRating_Blunt>
 					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
