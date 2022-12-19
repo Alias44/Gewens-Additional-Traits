@@ -15,8 +15,6 @@
 					<MedicalTendQuality>1</MedicalTendQuality>
 					<MedicalOperationSpeed>1</MedicalOperationSpeed>
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
-					<ArmorRating_Blunt>1</ArmorRating_Blunt>
-					<ArmorRating_Sharp>1.2</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
 					<li>
