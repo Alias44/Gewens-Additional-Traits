@@ -23,6 +23,28 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v4.0.0
+* 1.4 update
+* Converted mythology mix and match to Hellenic mythology
+  * Mercury's Blessing -> Hermes' Blessing
+  * Sylvanus' Blessing -> Pan's Blessing
+  * Vulcan's Fire -> Hephaestus' Forge
+  * Imhotep's Wisdom -> Asclepius' Healing
+* Added new traits: 
+  * Apollo's Harmony: shooting + art,
+  * Hades' Wealth: mining
+  * Demeter's Bounty: plants
+  * Athena's Wisdom: intellectual
+* Changes to existing traits:
+  * Fixed Careful Surgeon offsets being backwards
+  * Made Green Thumb's offset have a little more respect for the first law of thermodynamics
+  * Hermes' Haste now buffs speed and trade
+  * Pan's Blessing now buffs animal gathering
+  * Asclepius' Healing now buffs MedicalTendQuality
+  * Aphrodite's Grace has a native beauty buff, no longer buffs trade price and instead buffs negotiation, conversion, and fertility.
+  * Removed armor from divine traits not related to combat/ war, otherwise reduced by half
+  * Hephaestus' Forge now has a flammability reduction and flame armor
+
 v3.2.4
 * 1.3 update
 * Harmony update (v2.1.0)
@@ -80,7 +102,7 @@ v3.1.0
   * Fast miner
   * Uncouth
 * New Descriptions (the old ones are commented out in the xml files if for whatever reason there is a preference for them)
-  * Careful Surgeon: NAM takes medicine very seriously. HE wants to do no harm and isn't afraid to take longer to do the job right.
+  * Careful Surgeon: NAME takes medicine very seriously. HE wants to do no harm and isn't afraid to take longer to do the job right.
   * Natural Butcher: Sometimes it's hard to tell where the knife stops and NAME starts. People like to say that "if it bleeds NAME can skin it and split it".
   * Natural Tailor: NAME likes making apparel. HE can work wonders with a needle and thread a hammer and anvil, not so much
   * Eccentric Artist: NAME is an eccentric artist. HE has an affinity for the arts, but HE often gets lost in HIS work and forget to take care of HIMself.
