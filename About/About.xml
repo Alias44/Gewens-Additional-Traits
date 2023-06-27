@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>Additional Traits (Heroes + Gods Optional)</name>
-	<author>Alias</author>
 	<authors>
+		<li>Alias</li>
 		<li>Gewen</li>
 		<li>Swenzi</li>
 	</authors>
 	<packageId>Gewen.AdditionalTraits</packageId>
+	<modVersion IgnoreIfNoMatchingField="True">4.1.0</modVersion>
 	<url>https://ludeon.com/forums/index.php?topic=29661.msg300431#msg300431</url>
 	
 	<supportedVersions>
@@ -29,6 +30,12 @@
 			<displayName>Harmony</displayName>
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+		<li>
+			<packageId>imranfish.xmlextensions</packageId>
+			<displayName>XML Extensions</displayName>
+			<downloadUrl>https://github.com/15adhami/XmlExtensions</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/id/Imranfish/myworkshopfiles/?appid=294100</steamWorkshopUrl>
 		</li>
 		<!--Commented out as Additional Traits does not require DegeneralizeWork, but included for the sake of showing how to implement the requirement-->
 		<!--li>
