@@ -107,11 +107,7 @@ namespace Gewen_AdditionalTraits
 				}
 
 				//Rebuild the description (in case a new degree data was added since last load)
-				string desc = "";
-				foreach (var degree in traitDef.degreeDatas)
-				{
-					desc += degree.label + ": " + degree.description + "\n\n";
-				}
+				string desc = string.Join("\n\n", traitDef.degreeDatas.Select(degree => degree.label + ": " + degree.description));
 				fileInfoDict[tdFileName].defInfo[tdDefName].description = desc;
 			}
 
@@ -180,10 +176,7 @@ namespace Gewen_AdditionalTraits
 					}
 				}
 
-				foreach (string hit in defHitList)
-				{
-					fileInfoDict[file.Key].defInfo.Remove(hit);
-				}
+				defHitList.ForEach(hit => fileInfoDict[file.Key].defInfo.Remove(hit));
 				defHitList.Clear();
 
 				if (fileInfoDict[file.Key].defInfo.Count == 0)
@@ -192,10 +185,7 @@ namespace Gewen_AdditionalTraits
 				}
 			}
 
-			foreach (string hit in fileHitList)
-			{
-				fileInfoDict.Remove(hit);
-			}
+			fileHitList.ForEach(hit => fileInfoDict.Remove(hit));
 
 			defsChanged = false;
 			recountValid();

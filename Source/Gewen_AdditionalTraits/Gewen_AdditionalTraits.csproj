@@ -52,11 +52,12 @@
     <DefineConstants>TRACE;RELEASE_1_2</DefineConstants>
     <ManagedDir>$(RimWorldInstallDir)\RimWorld - 1.2\RimWorldWin64_Data\Managed</ManagedDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 1.1|AnyCPU'">
+    <OutputPath>..\..\1.1\Assemblies\</OutputPath>
+    <DefineConstants>TRACE;RELEASE_1_1</DefineConstants>
+    <ManagedDir>$(RimWorldInstallDir)\RimWorld - 1.1\RimWorldWin64_Data\Managed</ManagedDir>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Lib.Harmony.2.2.2\lib\net472\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
@@ -92,7 +93,9 @@
     <Compile Include="GAT_TraitSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="Lib.Harmony" Version="2.2.2">
+	  <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

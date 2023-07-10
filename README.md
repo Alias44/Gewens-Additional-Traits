@@ -23,6 +23,10 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v4.1.0
+* Added [XML Extensions](https://github.com/15adhami/XmlExtensions) dependency
+* Converted patch sequences to use XmlExtensions.PatchOperationSafeAdd
+
 v4.0.0
 * 1.4 update
 * Converted mythology mix and match to Hellenic mythology
