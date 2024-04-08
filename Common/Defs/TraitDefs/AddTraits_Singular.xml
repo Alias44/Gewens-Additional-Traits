@@ -12,10 +12,7 @@
 					<MentalBreakThreshold>-0.06</MentalBreakThreshold>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Social</key>
-						<value>2</value>
-					</li>
+					<Social>2</Social>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -55,18 +52,9 @@
 					<ShootingAccuracyPawn>0.10</ShootingAccuracyPawn>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Melee</key>
-						<value>2</value>
-					</li>
-					<li>
-						<key>Shooting</key>
-						<value>2</value>
-					</li>
-					<li>
-						<key>Construction</key>
-						<value>1</value>
-					</li>
+					<Melee>2</Melee>
+					<Shooting>2</Shooting>
+					<Construction>2</Construction>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -88,14 +76,8 @@
 					<AimingDelayFactor>-0.10</AimingDelayFactor>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Crafting</key>
-						<value>2</value>
-					</li>
-					<li>
-						<key>Artistic</key>
-						<value>2</value>
-					</li>
+					<Crafting>2</Crafting>
+					<Artistic>2</Artistic>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -113,10 +95,7 @@
 					<MeleeHitChance>0.10</MeleeHitChance>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>1</value>
-					</li>
+					<Shooting>1</Shooting>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -142,10 +121,7 @@
 					<MedicalTendSpeed>0.2</MedicalTendSpeed>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Cooking</key>
-						<value>1</value>
-					</li>
+					<Cooking>1</Cooking>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -267,10 +243,7 @@
 				<label>Pervert</label>
 				<description>{PAWN_nameDef} is an extreme pervert. {PAWN_pronoun} doesn't mind sharing a room, or streaking. It makes others feel incredibly uncomfortable.</description>
 				<skillGains>
-					<li>
-						<key>Social</key>
-						<value>-1</value>
-					</li>
+					<Social>-1</Social>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -303,10 +276,7 @@
 					<MedicalTendQuality>0.5</MedicalTendQuality>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Medicine</key>
-						<value>1</value>
-					</li>
+					<Medicine>1</Medicine>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -328,10 +298,7 @@
 					<ButcheryFleshSpeed>0.5</ButcheryFleshSpeed>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Cooking</key>
-						<value>1</value>
-					</li>
+					<Cooking>1</Cooking>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -353,10 +320,7 @@
 					<TailoringSpeed>0.5</TailoringSpeed>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Crafting</key>
-						<value>1</value>
-					</li>
+					<Crafting>1</Crafting>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -378,10 +342,7 @@
 					<SocialImpact>-0.5</SocialImpact>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Animals</key>
-						<value>1</value>
-					</li>
+					<Animals>1</Animals>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -406,10 +367,7 @@
 					<MentalBreakThreshold>0.1</MentalBreakThreshold>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Artistic</key>
-						<value>1</value>
-					</li>
+					<Artistic>1</Artistic>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -433,10 +391,7 @@
 					<MentalBreakThreshold>0.1</MentalBreakThreshold>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Intellectual</key>
-						<value>1</value>
-					</li>
+					<Intellectual>1</Intellectual>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -458,10 +413,7 @@
 					<!--<HarvestFailChance>-0.5</HarvestFailChance>-->
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Plants</key>
-						<value>1</value>
-					</li>
+					<Plants>1</Plants>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -483,10 +435,7 @@
 					<ConstructSuccessChance>1.5</ConstructSuccessChance>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Construction</key>
-						<value>1</value>
-					</li>
+					<Construction>1</Construction>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -508,10 +457,7 @@
 					<PlantHarvestYield>-0.75</PlantHarvestYield>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Mining</key>
-						<value>1</value>
-					</li>
+					<Mining>1</Mining>
 				</skillGains>
 			</li>
 		</degreeDatas>

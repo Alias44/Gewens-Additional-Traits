@@ -115,10 +115,7 @@
 					<ShootingAccuracyPawn>-0.20</ShootingAccuracyPawn>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>-2</value>
-					</li>
+					<Shooting>-2</Shooting>
 				</skillGains>
 			</li>
 			<li>
@@ -129,10 +126,7 @@
 					<ShootingAccuracyPawn>0.20</ShootingAccuracyPawn>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>2</value>
-					</li>
+					<Shooting>2</Shooting>
 				</skillGains>
 			</li>
 			<li>
@@ -143,10 +137,7 @@
 					<ShootingAccuracyPawn>0.40</ShootingAccuracyPawn>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>4</value>
-					</li>
+					<Shooting>4</Shooting>
 				</skillGains>
 			</li>
 		</degreeDatas>

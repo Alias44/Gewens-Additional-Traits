@@ -23,6 +23,10 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v4.1.1
+* 1.5 update
+* Added custom patch operation to handle skillGains schema change for pre 1.5 versions
+
 v4.1.0
 * Added [XML Extensions](https://github.com/15adhami/XmlExtensions) dependency
 * Converted patch sequences to use XmlExtensions.PatchOperationSafeAdd

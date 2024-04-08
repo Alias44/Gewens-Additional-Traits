@@ -1,0 +1,5 @@
+<Patch>
+	<Operation Class="Gewen_AdditionalTraits.PatchOperationDictify">
+		<xpath>Defs/TraitDef[starts-with(defName,"GAT_")]/degreeDatas/li/skillGains</xpath>
+	</Operation>
+</Patch>

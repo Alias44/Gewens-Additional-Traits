@@ -17,10 +17,7 @@
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Medicine</key>
-						<value>8</value>
-					</li>
+					<Medicine>8</Medicine>
 				</skillGains>
 			</li>
 		</degreeDatas>

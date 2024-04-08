@@ -14,10 +14,7 @@
 					<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Melee</key>
-						<value>6</value>
-					</li>
+					<Melee>6</Melee>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -39,14 +36,8 @@
 					<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Melee</key>
-						<value>2</value>
-					</li>
-					<li>
-						<key>Shooting</key>
-						<value>2</value>
-					</li>
+					<Melee>2</Melee>
+					<Shooting>2</Shooting>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -67,14 +58,8 @@
 					<MeleeHitChance>.5</MeleeHitChance>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Melee</key>
-						<value>1</value>
-					</li>
-					<li>
-						<key>Shooting</key>
-						<value>1</value>
-					</li>
+					<Melee>1</Melee>
+					<Shooting>1</Shooting>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -100,10 +85,7 @@
 					<IncomingDamageFactor>0.5</IncomingDamageFactor>
 				</statFactors>
 				<skillGains>
-					<li>
-						<key>Melee</key>
-						<value>8</value>
-					</li>
+					<Melee>8</Melee>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -133,10 +115,7 @@
 					<ForagedNutritionPerDay>1.25</ForagedNutritionPerDay>
 				</statFactors>
 				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>8</value>
-					</li>
+					<Shooting>8</Shooting>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -159,14 +138,8 @@
 					<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Shooting</key>
-						<value>4</value>
-					</li>
-					<li>
-						<key>Artistic</key>
-						<value>4</value>
-					</li>
+					<Shooting>4</Shooting>
+					<Artistic>4</Artistic>
 				</skillGains>
 				<allowedMeditationFocusTypes>
 					<li>Artistic</li>
@@ -191,10 +164,7 @@
 					<MiningYield>1</MiningYield>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Mining</key>
-						<value>8</value>
-					</li>
+					<Mining>8</Mining>
 				</skillGains>
 				<allowedMeditationFocusTypes>
 					<li>Morbid</li>
@@ -221,10 +191,7 @@
 					<Fertility MayRequire="Ludeon.Rimworld.Biotech">1</Fertility>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Social</key>
-						<value>8</value>
-					</li>
+					<Social>8</Social>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -249,10 +216,7 @@
 					<ForagedNutritionPerDay>2</ForagedNutritionPerDay>
 				</statFactors>
 				<skillGains>
-					<li>
-						<key>Plants</key>
-						<value>8</value>
-					</li>
+					<Plants>8</Plants>
 				</skillGains>
 				<allowedMeditationFocusTypes>
 					<li>Natural</li>
@@ -275,10 +239,7 @@
 					<BondAnimalChanceFactor>1</BondAnimalChanceFactor>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Animals</key>
-						<value>8</value>
-					</li>
+					<Animals>8</Animals>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -305,14 +266,8 @@
 					<ArmorRating_Heat>0.5</ArmorRating_Heat>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Crafting</key>
-						<value>4</value>
-					</li>
-					<li>
-						<key>Construction</key>
-						<value>4</value>
-					</li>
+					<Crafting>4</Crafting>
+					<Construction>4</Construction>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -335,10 +290,7 @@
 					<MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Medicine</key>
-						<value>8</value>
-					</li>
+					<Medicine>8</Medicine>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -361,10 +313,7 @@
 					<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Intellectual</key>
-						<value>8</value>
-					</li>
+					<Intellectual>8</Intellectual>
 				</skillGains>
 			</li>
 		</degreeDatas>
@@ -388,10 +337,7 @@
 					<TradePriceImprovement>1</TradePriceImprovement>
 				</statOffsets>
 				<skillGains>
-					<li>
-						<key>Social</key>
-						<value>8</value>
-					</li>
+					<Social>8</Social>
 				</skillGains>
 			</li>
 		</degreeDatas>
