@@ -1,12 +1,11 @@
 ﻿using RimWorld;
 
-namespace Gewen_AdditionalTraits
-{
-	[DefOf]
-	public static class GATDefOf
-	{
-		public static TraitDef GAT_Pervert;
+namespace Gewen_AdditionalTraits;
 
-		public static TraitDef GAT_Apollo;
-	}
+[DefOf]
+public static class GATDefOf
+{
+	public static TraitDef GAT_Pervert;
+
+	public static TraitDef GAT_Apollo;
 }
