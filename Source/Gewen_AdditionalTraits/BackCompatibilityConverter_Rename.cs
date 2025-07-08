@@ -12,14 +12,10 @@ namespace Gewen_AdditionalTraits
 		{
 			{ "GAT_Mercury", "GAT_Hermes" },
 			{ "GAT_Sylvanus", "GAT_Pan" },
-			{ "GAT_Vulcan", "GAT_Hephaestus" },
-			// pre 1.1 non-prefixed defnames
-			{ "Mercury", "GAT_Hermes" },
-			{ "Sylvanus", "GAT_Pan" },
-			{ "Vulcan", "GAT_Hephaestus" }
+			{ "GAT_Vulcan", "GAT_Hephaestus" }
 		};
 
-		public override bool AppliesToVersion(int majorVer, int minorVer) => true;
+		public override bool AppliesToVersion(int majorVer, int minorVer) => majorVer == 1 && minorVer <= 4;
 
 		public override string BackCompatibleDefName(Type defType, string defName, bool forDefInjections = false, XmlNode node = null)
 		{

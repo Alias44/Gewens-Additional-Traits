@@ -7,7 +7,7 @@ namespace Gewen_AdditionalTraits
 {
 	class BackCompatibilityConverter_GAT : BackCompatibilityConverter
 	{
-		public override bool AppliesToVersion(int majorVer, int minorVer) => true;
+		public override bool AppliesToVersion(int majorVer, int minorVer) => majorVer == 0 || (majorVer == 1 && minorVer <= 1); // applies to <= 1.1
 
 		public override string BackCompatibleDefName(Type defType, string defName, bool forDefInjections = false, XmlNode node = null)
 		{
