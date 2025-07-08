@@ -16,7 +16,11 @@ namespace Gewen_AdditionalTraits
 		{
 			var harmony = new Harmony("Gewen_AdditionalTraits.main");
 			//harmony.Patch(AccessTools.Method(typeof(Corpse), "GiveObservedThought"), null, new HarmonyMethod(patchType, nameof(MorbidCorpse)));
-			harmony.Patch(AccessTools.Method(typeof(QualityUtility), "GenerateQualityCreatedByPawn", new Type[] { typeof(Pawn), typeof(SkillDef) }), null, new HarmonyMethod(patchType, nameof(ApolloQuality)));
+#if RELEASE_1_5 || RELEASE_1_4 || RELEASE_1_3 || RELEASE_1_2 || RELEASE_1_1
+			harmony.Patch(AccessTools.Method(typeof(QualityUtility), "GenerateQualityCreatedByPawn", [typeof(Pawn), typeof(SkillDef)]), null, new HarmonyMethod(patchType, nameof(ApolloQuality)));
+#else
+			harmony.Patch(AccessTools.Method(typeof(QualityUtility), "GenerateQualityCreatedByPawn", [typeof(Pawn), typeof(SkillDef), typeof(bool)]), null, new HarmonyMethod(patchType, nameof(ApolloQuality)));
+#endif
 
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 
@@ -50,8 +54,8 @@ namespace Gewen_AdditionalTraits
 			{
 				if(pawn.story.traits.HasTrait(GATDefOf.GAT_Apollo))
 				{
-					MethodInfo addLevels = AccessTools.Method(typeof(QualityUtility), "AddLevels", new Type[] { typeof(QualityCategory), typeof(int) });
-					__result = (QualityCategory) addLevels.Invoke(null, new object[] { __result, 1 });
+					MethodInfo addLevels = AccessTools.Method(typeof(QualityUtility), "AddLevels", [typeof(QualityCategory), typeof(int)]);
+					__result = (QualityCategory) addLevels.Invoke(null, [__result, 1]);
 				}
 			} catch (Exception) {}
 		}
