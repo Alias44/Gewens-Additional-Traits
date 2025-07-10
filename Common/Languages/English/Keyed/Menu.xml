@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<GAT.ModName>Additional Traits</GAT.ModName>
+	
+	<GAT.NeedRestart>All changes require a restart to take effect</GAT.NeedRestart>
+	<GAT.Warning>Please note that disabling any traits currently in use by your save will cause a "Could not load reference to RimWorld.TraitDef named" error on reload for each trait disabled. These errors can safely be dismissed and will not reoccur after saving again. Anyone that previously had a disabled trait will be randomly assigned a new one in its place.</GAT.Warning>
+	
+	<GAT.EnableFile>Enable all traits in file</GAT.EnableFile>
+	<GAT.DisableFile>Disable all traits in file</GAT.DisableFile>
+</LanguageData>

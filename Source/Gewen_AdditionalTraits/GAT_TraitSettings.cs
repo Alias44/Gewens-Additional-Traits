@@ -206,12 +206,10 @@ public class GAT_TraitSettings : ModSettings
 		Color defaultColor = GUI.color;
 		Text.Font = GameFont.Medium;
 		GUI.color = Color.red;
-		options.Label("All changes require a restart to take effect");
+		options.Label("GAT.NeedRestart".Translate());
 		Text.Font = GameFont.Small;
 		GUI.color = Color.yellow;
-		string warningMsg = "Please note that disabling any traits currently in use by your save will cause a \"Could not load reference to RimWorld.TraitDef named\" error on reload for each trait disabled. " +
-			"These errors can safely be dismissed and will not reoccur after saving again. " +
-			"Anyone that previously had a disabled trait will be randomly assigned a new one in its place.";
+		string warningMsg = "GAT.Warning".Translate();
 		float warnMsgHeight = Text.CalcHeight(warningMsg, r.width);
 		options.Label(warningMsg);
 		GUI.color = defaultColor;
@@ -232,7 +230,7 @@ public class GAT_TraitSettings : ModSettings
 		{
 			bool fileStatus = fileInfoDict[fileName].enabled;
 
-			options.CheckboxLabeled(fileName, ref fileStatus, (fileStatus == true ? "Disable" : "Enable") + " all defs in file");
+			options.CheckboxLabeled(fileName, ref fileStatus, (fileStatus ? "GAT.DisableFile" : "GAT.EnableFile").Translate());
 
 			bool allDefStstus = false;
 			foreach (string defName in fileInfoDict[fileName].defInfo.Where(kv => kv.Value.exists).Select(kv => kv.Key))
@@ -272,7 +270,7 @@ public class GewensAddTraits_Mod : Mod
 		settings = GetSettings<GAT_TraitSettings>();
 	}
 
-	public override string SettingsCategory() => "Additional Traits";
+	public override string SettingsCategory() => "GAT.ModName".Translate();
 
 	public override void DoSettingsWindowContents(Rect inRect)
 	{
