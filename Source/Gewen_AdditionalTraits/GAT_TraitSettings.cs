@@ -154,7 +154,7 @@ public class GAT_TraitSettings : ModSettings
 						defHitList.Add(def.Key);
 					}
 				}
-				catch (System.Collections.Generic.KeyNotFoundException)
+				catch (KeyNotFoundException) //Failure to set the new file if the def moved. I think?
 				{
 					defHitList.Add(def.Key);
 				}

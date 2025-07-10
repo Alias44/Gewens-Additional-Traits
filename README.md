@@ -23,6 +23,12 @@ Note: You can get future changes by using the command get pull origin master
 
 ## Changes
 Changelog:
+v4.1.2
+* 1.6 update
+* Configured mod to allow for translations
+* Minor code clean up
+
+
 v4.1.1
 * 1.5 update
 * Added custom patch operation to handle skillGains schema change for pre 1.5 versions
