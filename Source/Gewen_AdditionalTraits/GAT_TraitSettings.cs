@@ -58,13 +58,18 @@ public class GAT_FileInfo : IExposable
 		Scribe_Values.Look(ref enabled, "fileEnabled", true);
 		Scribe_Collections.Look<string, GAT_DefInfo>(ref defInfo, "defInfo", LookMode.Value, LookMode.Deep);
 
-		if (Scribe.mode != LoadSaveMode.Saving)
+		if (Scribe.mode == LoadSaveMode.LoadingVars)
 		{
 			if (defInfo == null)
 			{
-				defInfo = new Dictionary<string, GAT_DefInfo>();
+				defInfo = [];
 			}
 		}
+	}
+
+	public void Add(TraitDef def)
+	{
+		defInfo.Add(def.defName, new GAT_DefInfo(this.enabled, true, def.DegreeLabels("\n\n")));
 	}
 }
 
@@ -99,16 +104,12 @@ public class GAT_TraitSettings : ModSettings
 
 			if (fileInfoDict[tdFileName].defInfo.ContainsKey(tdDefName) == false) //Same as for files, but for each def
 			{
-				fileInfoDict[tdFileName].defInfo.Add(tdDefName, new GAT_FileInfo.GAT_DefInfo(fileInfoDict[tdFileName].enabled, true));
+				fileInfoDict[tdFileName].Add(traitDef);
 			}
 			else
 			{
 				fileInfoDict[tdFileName].defInfo[tdDefName].exists = true;
 			}
-
-			//Rebuild the description (in case a new degree data was added since last load)
-			string desc = string.Join("\n\n", traitDef.degreeDatas.Select(degree => degree.label + ": " + degree.description));
-			fileInfoDict[tdFileName].defInfo[tdDefName].description = desc;
 		}
 
 		recountValid();
@@ -121,27 +122,10 @@ public class GAT_TraitSettings : ModSettings
 
 	private static void recountValid()
 	{
-		int newDefCount = 0;
-		int newFileCount = 0;
+		var part = fileInfoDict.Values.Where(fileInfo => fileInfo.exists);
 
-		foreach (var file in fileInfoDict.Keys)
-		{
-			if (fileInfoDict[file].exists == true)
-			{
-				newFileCount++;
-			}
-
-			foreach (var def in fileInfoDict[file].defInfo.Values)
-			{
-				if (def.exists == true)
-				{
-					newDefCount++;
-				}
-			}
-		}
-
-		defCount = newDefCount;
-		fileCount = newFileCount;
+		defCount = part.Count();
+		fileCount = part.Sum(fileInfo => fileInfo.defInfo.Values.Where(defInfo => defInfo.exists).Count());
 	}
 
 
@@ -193,45 +177,6 @@ public class GAT_TraitSettings : ModSettings
 		//toStringDebug();
 	}
 
-	public static void toStringDebug()
-	{
-		string msg = "Packages:\n";
-
-		foreach (var item in gatTraitDefs)
-		{
-			msg += item.fileName + "\t" + item.defName + "\n";
-		}
-
-		msg += "Dict:\n";
-		foreach (var item in fileInfoDict)
-		{
-			msg += item.Key + ":\n";
-
-			foreach (var item2 in item.Value.defInfo)
-			{
-				msg += "\t" + item2.Key + "\n";
-			}
-		}
-
-		Log.Message(msg);
-	}
-
-	public static void prepCSV()
-	{
-		string msg = "";
-		foreach (var fileName in fileInfoDict)
-		{
-			msg += fileName.Key + ",\n";
-
-			foreach (var def in fileName.Value.defInfo)
-			{
-				msg += def.Value.description.Replace("\n\n", ",\n").Replace(": ", ",\"") + "\"";
-			}
-		}
-
-		Log.Message(msg);
-	}
-
 	public override void ExposeData()
 	{
 		Scribe_Collections.Look<string, GAT_FileInfo>(ref fileInfoDict, "fileDict", LookMode.Value, LookMode.Deep);
@@ -272,7 +217,7 @@ public class GAT_TraitSettings : ModSettings
 		GUI.color = defaultColor;
 		options.Gap();
 		
-		float gapHeight = 12;
+		float gapHeight = Listing.DefaultGap;
 		Rect scroller = r.GetInnerRect();
 		Rect listRect = r.GetInnerRect().TopPart(.9f);
 		listRect.y += warnMsgHeight;
@@ -283,36 +228,32 @@ public class GAT_TraitSettings : ModSettings
 		Widgets.BeginScrollView(listRect, ref scrollVector2, scroller);
 		options.Begin(scroller);
 
-		foreach (string fileName in fileInfoDict.Keys.OrderBy(k=>k))
+		foreach (string fileName in fileInfoDict.Where(kv => kv.Value.exists).Select(kv => kv.Key).OrderBy(k => k))
 		{
-			if (fileInfoDict[fileName].exists)
+			bool fileStatus = fileInfoDict[fileName].enabled;
+
+			options.CheckboxLabeled(fileName, ref fileStatus, (fileStatus == true ? "Disable" : "Enable") + " all defs in file");
+
+			bool allDefStstus = false;
+			foreach (string defName in fileInfoDict[fileName].defInfo.Where(kv => kv.Value.exists).Select(kv => kv.Key))
 			{
-				bool fileStatus = fileInfoDict[fileName].enabled;
 
-				options.CheckboxLabeled(fileName, ref fileStatus, (fileStatus == true ? "Disable" : "Enable") + " all defs in file");
+				bool defStatus = fileInfoDict[fileName].defInfo[defName].enabled;
 
-				bool allDefStstus = false;
-				foreach (string defName in fileInfoDict[fileName].defInfo.Keys)
+				if (fileStatus != fileInfoDict[fileName].enabled) //If the file status has changed, set the defs to be the new file status
 				{
-					if (fileInfoDict[fileName].defInfo[defName].exists)
-					{
-						bool defStatus = fileInfoDict[fileName].defInfo[defName].enabled;
-
-						if (fileStatus != fileInfoDict[fileName].enabled) //If the file status has changed, set the defs to be the new file status
-						{
-							defStatus = fileStatus;
-						}
-						allDefStstus = allDefStstus || defStatus; //the file status should be the result of all of the defs or'd together
-
-						options.CheckboxLabeled("\t" + defName, ref defStatus, fileInfoDict[fileName].defInfo[defName].description);
-						fileInfoDict[fileName].defInfo[defName].enabled = defStatus;
-					}
+					defStatus = fileStatus;
 				}
-				fileStatus = allDefStstus;
-				fileInfoDict[fileName].enabled = fileStatus;
+				allDefStstus = allDefStstus || defStatus; //the file status should be the result of all of the defs or'd together
 
-				options.GapLine(gapHeight);
+				options.CheckboxLabeled("\t" + defName, ref defStatus, fileInfoDict[fileName].defInfo[defName].description);
+				fileInfoDict[fileName].defInfo[defName].enabled = defStatus;
+
 			}
+			fileStatus = allDefStstus;
+			fileInfoDict[fileName].enabled = fileStatus;
+
+			options.GapLine(gapHeight);
 		}
 		
 		options.End();
